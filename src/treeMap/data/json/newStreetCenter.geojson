@@ -1,0 +1,21 @@
+{
+"type": "FeatureCollection",
+"name": "newStreetCenter",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "三圣乡街道办事处", "ORIG_FID": 0, "x": "104.142961785577", "y": "30.586547043061" }, "geometry": { "type": "Point", "coordinates": [ 104.142961785577256, 30.586547043060989 ] } },
+{ "type": "Feature", "properties": { "NAME": "书院街街道办事处", "ORIG_FID": 1, "x": "104.083841608611", "y": "30.6620318642493" }, "geometry": { "type": "Point", "coordinates": [ 104.083841608611465, 30.662031864249343 ] } },
+{ "type": "Feature", "properties": { "NAME": "锦官驿街道办事处", "ORIG_FID": 2, "x": "104.08275118228", "y": "30.6506006835073" }, "geometry": { "type": "Point", "coordinates": [ 104.082751182279821, 30.650600683507264 ] } },
+{ "type": "Feature", "properties": { "NAME": "春熙路街道办事处", "ORIG_FID": 3, "x": "104.071221798912", "y": "30.6592684971932" }, "geometry": { "type": "Point", "coordinates": [ 104.071221798911836, 30.659268497193239 ] } },
+{ "type": "Feature", "properties": { "NAME": "督院街道办事处", "ORIG_FID": 4, "x": "104.067120408916", "y": "30.6522015219194" }, "geometry": { "type": "Point", "coordinates": [ 104.067120408916026, 30.65220152191938 ] } },
+{ "type": "Feature", "properties": { "NAME": "牛市口街道办事处", "ORIG_FID": 5, "x": "104.096385953517", "y": "30.6413646346509" }, "geometry": { "type": "Point", "coordinates": [ 104.096385953516517, 30.64136463465087 ] } },
+{ "type": "Feature", "properties": { "NAME": "东湖街道办事处", "ORIG_FID": 6, "x": "104.092648179853", "y": "30.6210670897361" }, "geometry": { "type": "Point", "coordinates": [ 104.092648179852802, 30.621067089736073 ] } },
+{ "type": "Feature", "properties": { "NAME": "沙河街道办事处", "ORIG_FID": 7, "x": "104.111850179041", "y": "30.6327353223612" }, "geometry": { "type": "Point", "coordinates": [ 104.1118501790408, 30.632735322361214 ] } },
+{ "type": "Feature", "properties": { "NAME": "狮子山街道办事处", "ORIG_FID": 8, "x": "104.116531486509", "y": "30.6154474139626" }, "geometry": { "type": "Point", "coordinates": [ 104.116531486508507, 30.615447413962556 ] } },
+{ "type": "Feature", "properties": { "NAME": "锦华路街道办事处", "ORIG_FID": 9, "x": "104.095344813002", "y": "30.6053499618096" }, "geometry": { "type": "Point", "coordinates": [ 104.095344813001645, 30.605349961809566 ] } },
+{ "type": "Feature", "properties": { "NAME": "国槐街道办事处", "ORIG_FID": 10, "x": "104.132777409476", "y": "30.6137984978351" }, "geometry": { "type": "Point", "coordinates": [ 104.132777409475693, 30.613798497835148 ] } },
+{ "type": "Feature", "properties": { "NAME": "成龙街道办事处", "ORIG_FID": 11, "x": "104.134679036638", "y": "30.6021762013742" }, "geometry": { "type": "Point", "coordinates": [ 104.13467903663792, 30.60217620137422 ] } },
+{ "type": "Feature", "properties": { "NAME": "柳江街道办事处", "ORIG_FID": 12, "x": "104.096451446538", "y": "30.5846021790616" }, "geometry": { "type": "Point", "coordinates": [ 104.096451446537856, 30.584602179061619 ] } },
+{ "type": "Feature", "properties": { "NAME": "白鹭湾街道办事处", "ORIG_FID": 13, "x": "104.121808583597", "y": "30.5674869900307" }, "geometry": { "type": "Point", "coordinates": [ 104.121808583597442, 30.567486990030716 ] } }
+]
+}

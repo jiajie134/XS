@@ -1,0 +1,462 @@
+@charset "UTF-8";
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+
+div {
+  box-sizing: border-box; }
+
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote,
+dl, dt, dd, ul, ol,
+pre,
+form, fieldset, legend, button, input, textarea,
+th, td {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+/** 设置默认字体 **/
+body,
+button, input, select, textarea {
+  font: 0.75rem/1.5 "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%; }
+
+address, cite, dfn, em, var {
+  font-style: normal; }
+
+/* 将斜体扶正 */
+code, kbd, pre, samp {
+  font-family: courier new, courier, monospace; }
+
+/* 统一等宽字体 */
+small {
+  font-size: 0.75rem; }
+
+/* 小于 12px 的中文很难阅读，让 small 正常化 */
+/** 重置列表元素 **/
+ul, ol {
+  list-style: none; }
+
+/** 重置文本格式元素 **/
+a {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
+/** 重置表单元素 **/
+legend {
+  color: #000; }
+
+/* for ie6 */
+fieldset, img {
+  border: 0; }
+
+/* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea {
+  font-size: 100%; }
+
+/* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+/** 重置表格元素 **/
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar {
+  width: 4px;
+  /*对垂直流动条有效*/
+  height: 4px;
+  /*对水平流动条有效*/
+  position: fixed; }
+
+/*定义滚动条的轨道颜色、内阴影及圆角*/
+::-webkit-scrollbar-track {
+  background-color: none;
+  border-radius: 3px; }
+
+/*定义滑块颜色、内阴影及圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.2); }
+
+/*定义两端按钮的样式*/
+::-webkit-scrollbar-button {
+  background-color: rgba(0, 0, 0, 0); }
+
+/*定义右下角汇合处的样式*/
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0); }
+
+.drag {
+  -webkit-app-region: drag; }
+
+.font-space, .Content .vw-Content-item .title {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.infoFont {
+  color: #909399;
+  font-size: 16px; }
+
+.noit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 38.4px;
+  color: #74ddfc; }
+
+.cover, .Content .vw-Content-item::after, .Content .vw-Content-item .title::after, .Content .vw-Content-item .title .vw-tiile, .Content .vw-Content-item .conter .sp-small-title::after, .Content .vw-Content-item .conter .Nt-list .Nt_Img, .Content .vw-Content-item .conter .Nt-list .nt_number .flip-number, .Content .vw-Content-item .conter .Nt-list .nt_number_chain .number::after, .Content .vw-Content-item .conter .Et-list .et::after, .Content .vw-Content-item .conter .Et-list .et .font, .Content .vw-Content-item .conter .Et-list .et .font::before, .Content .vw-Content-item .conter .Et-list .et .font::after {
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+.bdr {
+  background-image: repeating-linear-gradient(-45deg, #cc2a2d, #cc2a2d 30px, #f2f2f2 30px, #f2f2f2 40px, #0e71bb 40px, #0e71bb 70px, #f2f2f2 70px, #f2f2f2 80px); }
+
+.fontGradient {
+  background: linear-gradient(to right, red, blue);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent; }
+
+/* 撑开高度 */
+.flip-number::before {
+  content: "a";
+  display: block;
+  color: transparent; }
+
+/* 数字 */
+.flip-number::after {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: "0\a 1\a 2\a 3\a 4\a 5\a 6\a 7\a 8\a 9\a" attr(data-num);
+  display: block;
+  white-space: pre-line;
+  text-align: center;
+  animation: flipNumber cubic-bezier(0.12, 0.78, 0.52, 1.2) 1 0.4s;
+  animation-fill-mode: forwards;
+  will-change: transform; }
+
+@keyframes flipNumber {
+  from {
+    transform: translateY(0%); }
+  to {
+    transform: translateY(-1000%); } }
+
+.flip-number:nth-last-of-type(n + 1)::after {
+  animation-delay: 0.4s; }
+
+.flip-number:nth-last-of-type(n + 2)::after {
+  animation-delay: 0.8s; }
+
+.flip-number:nth-last-of-type(n + 3)::after {
+  animation-delay: 1.2s; }
+
+.flip-number:nth-last-of-type(n + 4)::after {
+  animation-delay: 1.6s; }
+
+.flip-number:nth-last-of-type(n + 5)::after {
+  animation-delay: 2s; }
+
+.flip-number:nth-last-of-type(n + 6)::after {
+  animation-delay: 2.4s; }
+
+.flip-number:nth-last-of-type(n + 7)::after {
+  animation-delay: 2.8s; }
+
+.flip-number:nth-last-of-type(n + 8)::after {
+  animation-delay: 3.2s; }
+
+.flip-number:nth-last-of-type(n + 9)::after {
+  animation-delay: 3.6s; }
+
+.flip-number:nth-last-of-type(n + 10)::after {
+  animation-delay: 4s; }
+
+.flip-number:nth-last-of-type(n + 11)::after {
+  animation-delay: 4.4s; }
+
+.flip-number:nth-last-of-type(n + 12)::after {
+  animation-delay: 4.8s; }
+
+.flip-number {
+  position: relative;
+  overflow: hidden;
+  display: inline-block; }
+
+.text-center {
+  text-align: center; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.grid-padding-20px-trl {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-bottom: 0;
+  padding-right: 20px; }
+
+.grid-padding-20px-t {
+  padding-top: 20px;
+  padding-left: 0;
+  padding-bottom: 0;
+  padding-right: 0; }
+
+.grid-padding-20px-rl {
+  padding-top: 0;
+  padding-left: 20px;
+  padding-bottom: 0;
+  padding-right: 20px; }
+
+.grid-margin-20px-t {
+  margin-top: 20px;
+  margin-left: 0;
+  margin-bottom: 0;
+  margin-right: 0; }
+
+@media only screen and (max-width: 2160px) {
+  * {
+    font-size: 100%; } }
+
+@media only screen and (min-width: 3600px) {
+  * {
+    font-size: 105%; } }
+
+@font-face {
+  font-family: "ULED";
+  src: url("~@/assets/font/UnidreamLED.ttf");
+  font-weight: normal;
+  font-style: normal; }
+
+.text-box-shadow {
+  text-shadow: 0 0 0.2em #0782d6, 0 0 0.2em #0782d6; }
+
+.Content .br-t {
+  padding-bottom: 20px !important;
+  border-bottom: 1px solid #0c3c66; }
+
+.Content .vw-Content-item {
+  padding: 20px;
+  position: relative; }
+  .Content .vw-Content-item::after {
+    position: absolute;
+    right: 15px;
+    left: 15px;
+    bottom: 0;
+    content: "";
+    width: calc(100% - 30px);
+    height: 26px;
+    background-image: url("~@/assets/images/Home/Divider.png"); }
+  .Content .vw-Content-item:last-child {
+    margin-bottom: 0; }
+    .Content .vw-Content-item:last-child::after {
+      background-image: none; }
+  .Content .vw-Content-item .title {
+    position: relative; }
+    .Content .vw-Content-item .title::after {
+      position: absolute;
+      right: 0;
+      bottom: 5px;
+      content: "";
+      width: 26px;
+      height: 11px;
+      background-image: url("~@/assets/images/Home/Home_Title_After_Bg.png"); }
+    .Content .vw-Content-item .title .vw-tiile {
+      background-image: url("~@/assets/images/Home/Home_Vw_Tiile_Bg.png");
+      padding: 2px 25px; }
+      .Content .vw-Content-item .title .vw-tiile .font {
+        font-size: 24px;
+        position: relative;
+        background: linear-gradient(to top, #2dcbff, white);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent; }
+    .Content .vw-Content-item .title .vw-en {
+      font-size: 16px;
+      margin-left: -16px;
+      margin-top: 1px;
+      color: #2797e3; }
+  .Content .vw-Content-item .conter {
+    padding-top: 20px; }
+    .Content .vw-Content-item .conter .small-title {
+      color: #85ceff;
+      font-size: 24px;
+      text-shadow: 0 1px 20px #0782d6; }
+    .Content .vw-Content-item .conter .flip-number {
+      font-family: "ULED";
+      font-size: 36px;
+      text-align: center;
+      width: 30px;
+      padding: 0;
+      margin-right: 8px;
+      border-radius: 10px;
+      margin-bottom: -2px; }
+    .Content .vw-Content-item .conter .numberFromBox {
+      margin-top: 20px; }
+      .Content .vw-Content-item .conter .numberFromBox .numberFrom {
+        color: #91deff;
+        font-size: 46px; }
+      .Content .vw-Content-item .conter .numberFromBox .iconFrom {
+        width: 18px;
+        height: 27px; }
+    .Content .vw-Content-item .conter .sp-small-title {
+      padding: 2px 15px;
+      color: #85ceff;
+      font-size: 16px;
+      position: relative;
+      height: 40px; }
+      .Content .vw-Content-item .conter .sp-small-title::after {
+        position: absolute;
+        left: -13px;
+        bottom: 0;
+        content: "";
+        width: 110%;
+        height: 14px;
+        background-image: url("~@/assets/images/Home/Home_Vw_Sp_Tiile_Bg.png"); }
+    .Content .vw-Content-item .conter .echarts-box {
+      padding-top: 20px; }
+      .Content .vw-Content-item .conter .echarts-box .echarts {
+        height: calc(100% - 30px); }
+    .Content .vw-Content-item .conter .numberGradient {
+      font-size: 40px;
+      position: relative;
+      background: linear-gradient(to top, #f1e362, #dcae4f);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent; }
+    .Content .vw-Content-item .conter .unit {
+      color: #add0d9;
+      font-size: 24px; }
+    .Content .vw-Content-item .conter .bd-list {
+      padding-left: 38px;
+      border-left: 1px solid #74ddfc; }
+      .Content .vw-Content-item .conter .bd-list:first-child {
+        padding-left: 0;
+        border-left: none; }
+    .Content .vw-Content-item .conter .Vu-echart {
+      height: 480px;
+      width: 100%; }
+    .Content .vw-Content-item .conter .Ec .Ent_Ec {
+      height: 130px; }
+    .Content .vw-Content-item .conter .Ec .Ec-list {
+      height: 130px; }
+      .Content .vw-Content-item .conter .Ec .Ec-list .nobd {
+        border-left: none !important; }
+      .Content .vw-Content-item .conter .Ec .Ec-list .list {
+        margin: 20px 0;
+        padding-left: 38px;
+        border-left: 1px solid #74ddfc; }
+    .Content .vw-Content-item .conter .Nt-list .bd-l-r {
+      padding: 0 40px;
+      margin-bottom: 15px;
+      border-left: 1px solid #74ddfc;
+      border-right: 1px solid #74ddfc;
+      height: 130px; }
+    .Content .vw-Content-item .conter .Nt-list .ec {
+      width: 100%;
+      height: 130px; }
+    .Content .vw-Content-item .conter .Nt-list .item-Nt-Img-1 {
+      background-image: url("~@/assets/images/Home/Nt_1.png"); }
+    .Content .vw-Content-item .conter .Nt-list .item-Nt-Img-2 {
+      background-image: url("~@/assets/images/Home/Nt_2.png"); }
+    .Content .vw-Content-item .conter .Nt-list .item-Nt-Img-3 {
+      background-image: url("~@/assets/images/Home/Nt_3.png"); }
+    .Content .vw-Content-item .conter .Nt-list .item-Nt-Img-4 {
+      background-image: url("~@/assets/images/Home/Nt_4.png"); }
+    .Content .vw-Content-item .conter .Nt-list .Nt_Img {
+      width: 120px;
+      height: 120px; }
+    .Content .vw-Content-item .conter .Nt-list .nt_number {
+      font-size: 22px;
+      height: 40px;
+      line-height: 40px;
+      margin-top: 5px; }
+      .Content .vw-Content-item .conter .Nt-list .nt_number .flip-number {
+        border-radius: 0;
+        background-image: url("~@/assets/images/Home/Nubmer_Bg.png"); }
+    .Content .vw-Content-item .conter .Nt-list .nt_number_chain {
+      font-size: 22px;
+      margin-top: 5px;
+      padding-right: 80px; }
+      .Content .vw-Content-item .conter .Nt-list .nt_number_chain .number {
+        font-size: 26px;
+        color: #efc523;
+        position: relative; }
+        .Content .vw-Content-item .conter .Nt-list .nt_number_chain .number::after {
+          position: absolute;
+          right: -30px;
+          bottom: 0;
+          content: "";
+          width: 18px;
+          height: 26px; }
+        .Content .vw-Content-item .conter .Nt-list .nt_number_chain .number.top::after {
+          background-image: url("~@/assets/images/Home/Nt_Top.png"); }
+        .Content .vw-Content-item .conter .Nt-list .nt_number_chain .number.bottom::after {
+          background-image: url("~@/assets/images/Home/Nt_Bottom.png"); }
+    .Content .vw-Content-item .conter .Et-list {
+      margin: 15px 0; }
+      .Content .vw-Content-item .conter .Et-list .small-title {
+        margin-top: 15px; }
+      .Content .vw-Content-item .conter .Et-list .et {
+        font-size: 24px;
+        color: #53c2fe;
+        width: 140px;
+        height: 156px;
+        margin: auto;
+        position: relative; }
+        .Content .vw-Content-item .conter .Et-list .et::after {
+          position: absolute;
+          left: 20%;
+          right: 20%;
+          bottom: 5px;
+          content: "";
+          width: 70px;
+          height: 10px;
+          background-image: url("~@/assets/images/Home/Et_Bottom.png"); }
+        .Content .vw-Content-item .conter .Et-list .et.et2 {
+          color: #efc523; }
+          .Content .vw-Content-item .conter .Et-list .et.et2 .font::after {
+            content: "";
+            background-image: url("~@/assets/images/Home/Et_Font_Bg_Yellow.png"); }
+        .Content .vw-Content-item .conter .Et-list .et .font {
+          width: 120px;
+          height: 120px;
+          line-height: 120px;
+          text-align: center;
+          position: relative;
+          background-image: url("~@/assets/images/Home/Et_Inner.png");
+          margin: auto; }
+          .Content .vw-Content-item .conter .Et-list .et .font::before {
+            position: absolute;
+            left: -10px;
+            bottom: -10px;
+            content: "";
+            width: 140px;
+            height: 140px;
+            background-image: url("~@/assets/images/Home/Et_Outer.png"); }
+          .Content .vw-Content-item .conter .Et-list .et .font::after {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 6px;
+            content: "";
+            width: 116px;
+            height: 140px;
+            background-image: url("~@/assets/images/Home/Et_Font_Bg_Blue.png"); }

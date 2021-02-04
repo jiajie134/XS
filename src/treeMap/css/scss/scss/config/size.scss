@@ -1,0 +1,21 @@
+@charset 'utf-8';
+
+$small:.75rem;
+
+$font: .75rem/1.5 "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;// 字体大小
+$defult_font_size: 24px;
+$small_font_size: 16px;
+// 小标题等等
+$sort_font_size:$defult_font_size * 1.2;
+// 中号字 22.4px
+$in_font_size:$defult_font_size * 1.6;
+// 大号字28px
+$big_font_size:$defult_font_size * 2;
+// 大号字33.6px
+$huge_font_size:46px;
+
+$numberGradient_font_size:40px;
+
+$border-radius:4px;
+
+$defult_pd:20px;

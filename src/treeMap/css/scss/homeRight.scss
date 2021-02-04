@@ -1,0 +1,400 @@
+@charset 'utf-8';
+
+// 公共样式
+.home-right {
+  width: 850px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 30px;
+  pointer-events: visible;
+}
+
+.yellow {
+  border-color: #f1e362;
+  background: rgba(77, 72, 42, 0.3);
+}
+
+.blue {
+  border-color: rgb(14, 167, 184);
+  background: rgba(0, 8, 30, 0.8);
+}
+
+@keyframes topBottom {
+  0% {
+    transform: translateY(-10px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes topBottom1 {
+  0% {
+    transform: translateY(10px);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+// 总体概况
+.right-total {
+  width: 100%;
+  height: 503px;
+}
+
+// .total-title {
+//   width: 100%;
+//   font-size: 30px;
+//   line-height: 29px;
+//   color: #cff7ff;
+//   margin: 10px 0;
+// }
+
+// .total-form {
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   flex-wrap: wrap;
+
+//   div {
+//     width: 33%;
+//     line-height: 38px;
+
+//     span {
+//       display: inline-block;
+
+//       &:first-child {
+//         width: 160px;
+//         font-size: 22px;
+//         color: #cff7ff;
+        
+//       }
+
+//       &:nth-child(2) {
+//         width: calc(100% - 160px);
+//         font-size: 28px;
+//         color: #f1e362;
+//       }
+//     }
+//   }
+// }
+
+// .total-grid {
+//   width: 100%;
+//   height: calc(100% - 240px);
+//   margin-top: 20px;
+//   display: flex;
+//   align-items: center;
+//   border-left: 1px solid rgba(242, 242, 242, 0.3);
+//   box-sizing: border-box;
+
+//   div {
+//     width: 25%;
+//     height: 100%;
+//     border-right: 1px solid rgba(242, 242, 242, 0.3);
+//     box-sizing: border-box;
+//     text-align: center;
+//     display: flex;
+//     align-items: center;
+//     flex-wrap: wrap;
+//     justify-content: center;
+
+//     p {
+//       width: 100%;
+
+//       &:nth-child(1) {
+//         font-size: 32px;
+//         line-height: 48px;
+//         font-weight: bold;
+//         background: linear-gradient(to bottom, #2fa3da, #2fdad0);
+//         background-clip: text;
+//         -webkit-background-clip: text;
+//         color: transparent;
+//       }
+
+//       &:nth-child(2) {
+//         font-size: 22px;
+//         line-height: 48px;
+//         color: #cff7ff;
+//       }
+//     }
+//   }
+// }
+
+// 教育状况
+.right-handle {
+  width: 100%;
+  height: 431px;
+}
+
+// .handle-pie {
+//   width: 100%;
+//   height: 100%;
+
+//   div {
+//     width: 100%;
+//     height: 100%;
+
+//     div {
+//       width: 200px;
+//       height: 50px;
+//       text-align: center;
+//     }
+//   }
+// }
+
+// 网格
+// .right-grid {
+//   .item {
+//     height: 100%;
+//     box-sizing: border-box;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-around;
+//     padding: 20px;
+//     border-width: 1px;
+//     border-style: solid;
+
+//     .avatar-wrap {
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       width: 20%;
+//       height: 80%;
+//     }
+//     .avatar {
+//       width: 100%;
+//       height: 70%;
+//       font-size: 80px;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       border-radius: 5px;
+//       background: rgba(0, 0, 0, 0.4);
+//     }
+//     .info {
+//       width: 53%;
+
+//       .online {
+//         .circle {
+//           background: #67c23a;
+//           box-shadow: #e1f3d8 0px 0px 10px 2px;
+//         }
+//         .text {
+//           color: #67c23a;
+//         }
+//       }
+
+//       .offline {
+//         .circle {
+//           // background: #f56c6c;
+//           // box-shadow: #f39797 0px 0px 10px 2px;
+//           background:rgb(128, 128, 128);
+//           box-shadow:#645e5e 0px 0px 10px 2px;
+//         }
+//         .text {
+//           color: rgb(128, 128, 128);
+//         }
+//       }
+
+//       .circle {
+//         display: inline-block;
+//         margin-right: 14px;
+//         width: 20px;
+//         height: 20px;
+//         border-radius: 10px;
+//       }
+//     }
+//     .btns {
+//       width: 19%;
+//       height: 80%;
+//       display: flex;
+//       justify-content: space-around;
+//       flex-direction: column;
+//     }
+//   }
+// }
+
+// 高频事件TOP5
+.right-rate {
+  width: 100%;
+  height: 525px;
+}
+
+.right-work{
+  width: 100%;
+  height: 440px;
+}
+// 最新事件
+// .right-event {
+//   .item {
+//     padding: 20px 40px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-around;
+//     border-width: 1px;
+//     border-style: solid;
+//     box-sizing: border-box;
+
+//     .title {
+//       font-size: 36px;
+//       color: #9be4f8;
+//       line-height: 1.6;
+//       overflow: hidden;
+//       text-overflow: ellipsis;
+//       white-space: nowrap;
+//     }
+
+//     &.yellow {
+//       .title {
+//         color: #f1e362;
+//       }
+//     }
+//   }
+// }
+
+// .rate-cont {
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .rate-title {
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 0 10px;
+//   box-sizing: border-box;
+
+//   span {
+//     font-size: 24px;
+//     line-height: 60px;
+//     color: #cff7ff;
+//   }
+// }
+
+// .rate-tab {
+//   width: 100%;
+//   height: calc((100% - 100px) / 5);
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   background-color: rgba(0, 150, 255, 0.1);
+//   margin-bottom: 10px;
+//   padding: 0 10px;
+//   box-sizing: border-box;
+
+//   span {
+//     font-size: 20px;
+//     color: #cff7ff;
+
+//     &:nth-child(2) {
+//       font-size: 28px;
+//       background: linear-gradient(to bottom, #2fa3da, #2fdad0);
+//       background-clip: text;
+//       -webkit-background-clip: text;
+//       color: transparent;
+//     }
+//   }
+// }
+
+// 群众关注TOP5
+.right-masses {
+  width: 100%;
+  height: 810px;
+}
+
+// .masses-cont {
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   align-items: center;
+
+//   div {
+//     width: 20%;
+//     height: 100%;
+//     text-align: center;
+
+//     p {
+//       &:nth-child(1) {
+//         font-size: 34px;
+//         line-height: 36px;
+//         font-weight: bold;
+//         background: linear-gradient(to bottom, #f1e362, #dcae4f);
+//         background-clip: text;
+//         -webkit-background-clip: text;
+//         color: transparent;
+//       }
+
+//       &:nth-child(3) {
+//         font-size: 24px;
+//         line-height: 36px;
+//         background: linear-gradient(to bottom, #fff, #00c0ff);
+//         background-clip: text;
+//         -webkit-background-clip: text;
+//         color: transparent;
+
+//         span {
+//           display: inline-block;
+//           width: 30px;
+//           height: 30px;
+//           border: 1px solid #00c0ff;
+//           border-radius: 50%;
+//           background: linear-gradient(to bottom, #fff, #00c0ff);
+//           background-clip: text;
+//           -webkit-background-clip: text;
+//           color: transparent;
+//           margin-right: 5px;
+//         }
+//       }
+//     }
+
+//     img {
+//       width: 100%;
+//     }
+
+//     &:nth-child(1) {
+//       margin-top: 0;
+//       animation: topBottom 6s linear infinite;
+//     }
+
+//     &:nth-child(2) {
+//       margin-top: 60px;
+//       animation: topBottom1 6s linear infinite;
+//     }
+
+//     &:nth-child(3) {
+//       margin-top: 20px;
+//       animation: topBottom 6s linear infinite;
+//     }
+
+//     &:nth-child(4) {
+//       margin-top: 60px;
+//       animation: topBottom1 6s linear infinite;
+//     }
+
+//     &:nth-child(5) {
+//       margin-top: 80px;
+//       animation: topBottom 6s linear infinite;
+//     }
+//   }
+// }
+// .researcherssummarized{
+//   height: 17vh;
+//   width: 100%;
+// }
+// .girdsituation{
+//   cursor: pointer;
+// }
