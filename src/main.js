@@ -12,4 +12,5 @@ import Com from './components/Pub.vue'
 const app = createApp(App);
 app.component('publicCom',Com)
 app.mount('#app')
-console.log('²âÊÔgit')
+console.log('ï¿½ï¿½ï¿½ï¿½git');
+console.log('ï¿½ï¿½ï¿½ï¿½git');
