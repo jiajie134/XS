@@ -12,5 +12,4 @@ import Com from './components/Pub.vue'
 const app = createApp(App);
 app.component('publicCom',Com)
 app.mount('#app')
-console.log('����git');
-console.log('����git');
+console.log('弗利卡式的')
