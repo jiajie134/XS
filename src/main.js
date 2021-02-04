@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-04 17:16:56
+ * @LastEditTime: 2021-02-04 17:18:01
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\main.js
@@ -13,3 +13,4 @@ const app = createApp(App);
 app.component('publicCom',Com)
 app.mount('#app')
 console.log('弗利卡式的')
+console.log('弗利卡式的2')
