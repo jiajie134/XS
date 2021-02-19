@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-11-25 10:19:02
- * @LastEditTime: 2021-02-19 11:06:20
+ * @LastEditTime: 2021-02-19 11:21:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \treeMap\js\index.js
@@ -63,7 +63,7 @@ Map.init(function (Vex, scene) {
         const baseDate = dateArr[0].split('/');
         return `${baseDate[0]}-${baseDate[1]}-${baseDate[2]}&nbsp; ${dateArr[1]} &nbsp; ${weakEnum(date.getDay())}`;
     }
-
+console.log('..')
     function weakEnum(day) {
         switch (day) {
             case 0:
