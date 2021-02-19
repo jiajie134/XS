@@ -1,13 +1,15 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-19 10:43:50
+ * @LastEditTime: 2021-02-19 14:23:19
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\components\HelloWorld.vue
 -->
 <template>
   <div class="hello">
+    <XS-Header></XS-Header>
+    <XS-Body></XS-Body>
     <control></control>
   </div>
 </template>
@@ -15,6 +17,7 @@
 <script>
 // import {ref,reactive} from 'vue'
 // import {useRouter} from 'vue-router'
+import {useStore} from 'vuex'
 export default {
   name: "HelloWorld",
   // inheritAttrs: false,
@@ -22,7 +25,10 @@ export default {
     
   },
   setup(){
-
+    const store = useStore();
+    return {
+      store
+    }
   },
   data() {
     return {
@@ -30,7 +36,8 @@ export default {
     };
   },
   created() {
-  
+    console.log(this.$store.state.count)
+    console.log(this.store.state.count)
   },
   methods: {
  
