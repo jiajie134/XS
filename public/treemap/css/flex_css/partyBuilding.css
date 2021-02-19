@@ -1,0 +1,65 @@
+.djPanel{
+    display: none;
+}
+
+.djPanel .left-base{
+    height: 20vh;
+}
+    .djPanel .left-base .detail-row{
+        display: flex;
+        justify-content: space-around;
+    }
+        .djPanel .detail-row .detail-item{
+            align-items: center;
+            display: flex;
+            height: 4vh;
+            line-height: 4vh;
+            min-width: 45%;
+        }
+            .djPanel .detail-item .count{
+                color: aqua;
+            }
+            .djPanel .detail-item i{
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                background-size: cover;
+            }
+                i.normal{background-image: url("../img/party/normal.png");}
+                i.getSet{background-image: url("../img/party/getSet.png");}
+                i.develop{background-image: url("../img/party/develop.png");}
+                i.flexed{background-image: url("../img/party/flex.png");}
+                i.organization{background-image: url("../img/party/organization.png");}
+                i.soldjer{background-image: url("../img/party/soldjer.png");}
+
+.djPanel .left-sex{
+    height: 20vh;
+}
+    .left-sex .all{
+        height: 100%;
+        display: flex;
+    }
+    #sexPie{
+        width: 50%;
+        height: 100%;
+    }
+.left-about{
+    height: 25vh;
+}
+.left-about .all{
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#education,#work,#partyAge,#age{
+    width: 40%;
+    height: 40%;
+}
+
+
+
+#developChart{
+    width: 100%;
+    height: 100%;
+}

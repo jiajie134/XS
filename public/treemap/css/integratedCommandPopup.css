@@ -1,0 +1,113 @@
+.riskMapBox {
+    width: 540px;
+    height: 255px;
+    pointer-events: none;
+    user-select: none;
+}
+
+.riskMapBox .close {
+    position: absolute;
+    top: 10px;
+    right: 22px;
+    color: #fff;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+.riskMapBox .chartsBox {
+    display: inline-block;
+    width: 152px;
+    height: 255px;
+    padding: 10px 10px 0 10px;
+}
+
+.riskMapBox .charts {
+    width: 132px;
+    height: 132px;
+    background-color: #fff;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,.6);
+    box-shadow: 0 0 20px 2px #79d2ff;
+    padding: 10px;
+    pointer-events: all;
+    
+
+}
+
+.riskMapBox .charts canvas {
+    cursor: pointer;
+}
+
+.riskMapBox .chart {
+    width: 112px;
+    height: 112px;
+}
+
+.riskMapBox .zz {
+    width: 100%;
+    height: calc(100% - 132px);
+    background-image: url('../images/z.png');
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: center;
+}
+
+.riskMapBox .infoBox {
+    display: none;
+    width: 372px;
+    height: 190px;
+    background-image: url('../images/pBg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    vertical-align: top;
+    position: relative;
+    z-index: 2;
+}
+
+.riskMapBox .infoBox .title {
+    /* width: 100%; */
+    height: 38px;
+    line-height: 38px;
+    padding-left: 20px;
+    font-size: 26px;
+    color: #fff;
+}
+.riskMapBox .content {
+    width: 100%;
+    height: calc(100% - 38px);
+    overflow: hidden;
+}
+.riskMapBox .content .item {
+    float: left;
+    width: 50%;
+    height: 50%;
+    line-height: 76px;
+}
+.riskMapBox .content .item .name {
+    float: left;
+    width: 70px;
+    height: 100%;
+    font-size: 20px;
+    text-align: center;
+}
+.riskMapBox .content .item .num {
+    float: left;
+    width: 72px;
+    height: 100%;
+    background-image: url('../images/num.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    text-align: center;
+    font-size: 28px;
+    color: #fff;
+}
+.riskMapBox .content .item .unit{
+    float: left;
+    width: auto;
+    height: 100%;
+    font-size: 18px;
+    color: #fff;
+    padding-left: 10px;
+}

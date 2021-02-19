@@ -1,0 +1,55 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-11-25 10:18:26
+ * @LastEditTime: 2020-11-25 17:09:33
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \treeMap\unity_index.html
+-->
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Unity WebGL Player | sis</title>
+	<link rel="shortcut icon" href="TemplateData/favicon.ico">
+
+	<link rel="stylesheet" href="TemplateData/style.css">
+
+	<script src="TemplateData/UnityProgress.js"></script>
+	<script src="Build/UnityLoader.js"></script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+	</style>
+
+	<script>
+		var unityInstance = UnityLoader.instantiate("unityContainer", "Build/vex_unity.json", {
+			onProgress: UnityProgress
+		});
+		window.unity = unityInstance;
+	</script>
+
+
+
+</head>
+
+<body>
+
+	<div class="webgl-content">
+		<div id="unityContainer" style="width: 100%; height: 100%"></div>
+	</div>
+
+</body>
+
+</html>

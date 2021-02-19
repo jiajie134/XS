@@ -1,0 +1,77 @@
+@import "common.scss";
+html,body {
+    overflow: hidden;
+}
+.bd-after {
+    position: absolute;
+    content: "";
+    width: 200px;
+    height: 200px;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.Home {
+    width: 100%;
+    // height: 100%;
+    background-color: $defultBgColor;
+    color: $defultFontColor;
+    position: relative;
+	&::after {
+        @extend .bd-after;
+        bottom: 0;
+        right: 0;
+		transform: rotateY(180deg);
+		// background-image: $left_bottom_bg;
+	}
+	&::before {
+        @extend .bd-after;
+		bottom: 0;
+		left: 0;
+		// background-image: $left_bottom_bg;
+		background-color: rgba(0, 126, 149, 0);
+	}
+	.header {
+        // height: 108px;
+        height:58px;
+        position: relative;
+        &::after {
+            @extend .bd-after;
+            top: 0;
+            right: 0;
+            transform: rotateY(180deg);
+            // background-image: $left_top_bg;
+        }
+        &::before {
+            @extend .bd-after;
+            top: 0;
+            left: 0;
+            // background-image: $left_top_bg;
+            background-color: rgba(0, 126, 149, 0);
+        }
+    }
+    .Content {
+        position: relative;
+        height: calc(100% - 140px);
+        .Center {
+            height: 100%;
+            position: relative;
+            width: 100%;
+            z-index: 0;
+        }
+        .it-Center {
+            position: absolute;
+            height: 100%;
+            bottom: 0;
+            width: 860px;
+            padding: $defult_pd;
+            z-index: 8;
+            &.left {
+                left:0;
+            }
+            &.right {
+                right:0;
+            }
+        }
+    }
+}
