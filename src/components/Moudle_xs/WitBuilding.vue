@@ -1,34 +1,31 @@
 <!--
  * @Author: your name
- * @Date: 2021-02-04 10:32:16
- * @LastEditTime: 2021-02-20 12:03:31
+ * @Date: 2021-02-20 13:50:25
+ * @LastEditTime: 2021-02-20 13:55:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: \vue3project\src\components\Live.vue
+ * @FilePath: \XS\src\components\Moudle_xs\Wit.vue
 -->
+<!--智慧党建-->
+
 <template>
-  <div class="Body">
-     <router-view></router-view>
+  <div class="WitBuilding" id="WitBuilding">
+     智慧党建
   </div>
 </template>
 <script>
-
 export default {
   data() {
     return {
         
     };
   },
+
   methods: {
-      addnum(){
-         
-      }
+     
   },
 };
 </script >
 <style scoped>
-  .Body {
-    width: 100%;
-    height: 94vh;
-  }
+ 
 </style>

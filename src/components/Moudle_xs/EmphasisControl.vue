@@ -1,34 +1,32 @@
 <!--
  * @Author: your name
- * @Date: 2021-02-04 10:32:16
- * @LastEditTime: 2021-02-20 12:03:31
+ * @Date: 2021-02-20 10:39:16
+ * @LastEditTime: 2021-02-20 10:40:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: \vue3project\src\components\Live.vue
+ * @FilePath: \XS\src\components\Moudle_xs\emphasis.vue
 -->
+
+<!--社区治理专题-->
+
 <template>
-  <div class="Body">
-     <router-view></router-view>
+  <div class="EmphasisControl">
+     重点管控专题
   </div>
 </template>
 <script>
-
 export default {
   data() {
     return {
         
     };
   },
+
   methods: {
-      addnum(){
-         
-      }
+     
   },
 };
 </script >
 <style scoped>
-  .Body {
-    width: 100%;
-    height: 94vh;
-  }
+ 
 </style>

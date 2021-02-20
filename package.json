@@ -10,7 +10,10 @@
   "dependencies": {
     "cesium": "^1.78.0",
     "core-js": "^3.8.1",
+    "css-loader": "^5.0.2",
     "echarts": "^5.0.1",
+    "less": "^4.1.1",
+    "less-loader": "^8.0.0",
     "vue": "^3.0.4",
     "vue-router": "^4.0.0-beta.9",
     "vuex": "^4.0.0"

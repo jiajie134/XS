@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-19 10:21:37
+ * @LastEditTime: 2021-02-20 15:00:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\App.vue
@@ -30,7 +30,7 @@ export default {
   components: {},
   methods: {},
   mounted() {
-    console.log(this.Vex)
+  
   },
 };
 </script>

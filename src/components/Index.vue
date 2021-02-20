@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-19 14:23:19
+ * @LastEditTime: 2021-02-20 14:29:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\components\HelloWorld.vue
@@ -9,6 +9,7 @@
 <template>
   <div class="hello">
     <XS-Header></XS-Header>
+    <navAction></navAction>
     <XS-Body></XS-Body>
     <control></control>
   </div>
@@ -18,6 +19,7 @@
 // import {ref,reactive} from 'vue'
 // import {useRouter} from 'vue-router'
 import {useStore} from 'vuex'
+import navAction from './Navigation'
 export default {
   name: "HelloWorld",
   // inheritAttrs: false,
@@ -30,14 +32,15 @@ export default {
       store
     }
   },
+   components:{
+    navAction
+  },
   data() {
     return {
     
     };
   },
   created() {
-    console.log(this.$store.state.count)
-    console.log(this.store.state.count)
   },
   methods: {
  

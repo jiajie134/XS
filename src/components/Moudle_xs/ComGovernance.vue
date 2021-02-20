@@ -1,34 +1,33 @@
 <!--
  * @Author: your name
- * @Date: 2021-02-04 10:32:16
- * @LastEditTime: 2021-02-20 12:03:31
+ * @Date: 2021-02-20 10:36:57
+ * @LastEditTime: 2021-02-20 10:37:38
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: \vue3project\src\components\Live.vue
+ * @FilePath: \XS\src\components\Moudle_xs\ComGovernance.vue
 -->
+
+
+<!--社区治理专题-->
+
 <template>
-  <div class="Body">
-     <router-view></router-view>
+  <div class="ComGovernance">
+     社区治理专题
   </div>
 </template>
 <script>
-
 export default {
   data() {
     return {
         
     };
   },
+
   methods: {
-      addnum(){
-         
-      }
+     
   },
 };
 </script >
 <style scoped>
-  .Body {
-    width: 100%;
-    height: 94vh;
-  }
+ 
 </style>

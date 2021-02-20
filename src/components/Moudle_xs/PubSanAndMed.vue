@@ -1,34 +1,31 @@
 <!--
  * @Author: your name
- * @Date: 2021-02-04 10:32:16
- * @LastEditTime: 2021-02-20 12:03:31
+ * @Date: 2021-02-20 13:53:49
+ * @LastEditTime: 2021-02-20 13:54:52
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
- * @FilePath: \vue3project\src\components\Live.vue
+ * @FilePath: \XS\src\components\Moudle_xs\Pub.vue
 -->
+<!--公共卫生医疗-->
+
 <template>
-  <div class="Body">
-     <router-view></router-view>
+  <div class="PubSanAndMed" id="PubSanAndMed">
+     公共卫生医疗
   </div>
 </template>
 <script>
-
 export default {
   data() {
     return {
         
     };
   },
+
   methods: {
-      addnum(){
-         
-      }
+     
   },
 };
 </script >
 <style scoped>
-  .Body {
-    width: 100%;
-    height: 94vh;
-  }
+ 
 </style>
