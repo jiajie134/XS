@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-03 13:52:07
- * @LastEditTime: 2021-02-19 13:57:23
+ * @LastEditTime: 2021-02-22 11:01:46
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\components\components.vue
@@ -87,5 +87,5 @@ export default {
 };
 </script>
 <style scoped>
-  @import "../assets/XSCSS/control.css";
+  @import "../assets/css/control.css";
 </style>
