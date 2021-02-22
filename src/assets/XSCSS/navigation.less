@@ -1,0 +1,35 @@
+#Navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: initial;
+
+    .navdetail {
+        width: 1000px;
+        height: 100%;
+        display: flex;
+        font-size: 20px;
+        color: white;
+        justify-content: space-around;
+        align-items: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+        >li {
+            cursor: pointer;
+            height: 100%;
+            flex: 1;
+            text-align: center;
+
+            &:hover {
+                color: yellowgreen;
+                transform: scale(1.2);
+                font-weight: 500;
+            }
+        }
+
+        >.active {
+            color: yellowgreen;
+            font-size: 22px;
+        }
+    }
+}

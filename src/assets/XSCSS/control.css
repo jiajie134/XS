@@ -1,0 +1,65 @@
+#layerCheckBox {
+    display: block;
+    position: absolute;
+    left: 28%;
+    bottom: 3%;
+    font-size: 12px;
+    pointer-events: initial;
+    user-select: none;
+}
+
+#layerChecked {
+    background: url(../images/边框.png) no-repeat;
+    background-size: 100% 100%;
+    padding: 15px;
+}
+
+#layerCheckBox ul {
+    width: 100%;
+    height: 100%;
+}
+
+#layerCheckBox ul li {
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+#layerCheckBox ul li img {
+    width: 13px;
+    height: 13px;
+    margin-left: 5px;
+}
+#layerCheckBox ul li label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+input[type='checkbox'] {
+    width: 14px;
+    height: 14px;
+    background: url("../images/未选中.png") no-repeat center;
+    background-size: 100% 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -o-appearance: none;
+    -moz-appearance: none;
+    /*border: 1px solid #fff;*/
+    /* position: relative;
+    top: 5px; */
+    outline: none;
+    cursor: pointer;
+}
+
+input[type=checkbox]:checked {
+    background: url("../images/选中.png") no-repeat center;
+    background-size: 100% 100%;
+}
+
+input[type=checkbox]:focus {
+    outline: none;
+}
