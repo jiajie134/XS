@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-22 09:54:58
- * @LastEditTime: 2021-02-22 10:30:04
+ * @LastEditTime: 2021-02-22 14:19:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\vue.config.js
@@ -21,7 +21,10 @@ module.exports = {
     // use the full build with in-browser compiler?
     runtimeCompiler: false,
     // webpack配置
-    chainWebpack: () => {},
+    chainWebpack: config => {
+        const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+        types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
+      },
     configureWebpack: () => {},
     // 生产环境是否生成 sourceMap 文件
     productionSourceMap: false,
@@ -39,7 +42,11 @@ module.exports = {
         extract:mode ? true : false,
         sourceMap:false,
         loaderOptions:{
-
+            less:{
+                // data:'@import "@/assets/XSCSS/globalVar.less" '
+                // import:resolve("@/assets/XSCSS/globalVar.less")
+                javascriptEnabled: true
+            }
         }
     },
     // webpack-dev-server 相关配置
@@ -53,3 +60,13 @@ module.exports = {
         // before: app => {}
     },
 }
+
+function addStyleResource (rule) {
+    rule.use('style-resource')
+      .loader('style-resources-loader')
+      .options({
+        patterns: [
+          path.resolve(__dirname, './src/assets/XSCSS/globalVar.less'),
+        ],
+      })
+  }
