@@ -41,6 +41,8 @@ export default {
     };
   },
   created() {
+    console.log("-------------------------------------------------")
+    console.log(this.$echarts)
   },
   methods: {
  
