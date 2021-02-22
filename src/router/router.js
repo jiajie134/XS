@@ -14,7 +14,7 @@ import {
 const ROUTES = [{
     path: '/',
     name: 'Index',
-    redirect:'/OveSituation',
+    redirect:'OveSituation',
     component: () => import( /* webpackChunkName: "Index"  */ "../components/Index.vue"),
     meta: {
         title: '首页'
@@ -22,49 +22,49 @@ const ROUTES = [{
     children: [{
         path: 'OveSituation',
         name: 'OveSituation',
-        component: () => import( /* webpackChunkName: "OveSituation"  */ "../components/Moudle_xs/OveSituation.vue"),
+        component: () => import( /* webpackChunkName: "OveSituation"  */ "../components/Moudle_xs/OveSituation/OveSituation.vue"),
         meta:{
             title:'总体态势'
         }
     },{
         path: 'PopManagement',
         name: 'PopManagement',
-        component: () => import( /* webpackChunkName: "PopManagement"  */ "../components/Moudle_xs/PopManagement.vue"),
+        component: () => import( /* webpackChunkName: "PopManagement"  */ "../components/Moudle_xs/PopManagement/PopManagement.vue"),
         meta:{
             title:'人口治理专题'
         }
     },{
         path: 'ComGovernance',
         name: 'ComGovernance',
-        component: () => import( /* webpackChunkName: "ComGovernance"  */ "../components/Moudle_xs/ComGovernance.vue"),
+        component: () => import( /* webpackChunkName: "ComGovernance"  */ "../components/Moudle_xs/ComGovernance/ComGovernance.vue"),
         meta:{
             title:'社区治理专题'
         }
     },{
         path: 'EmphasisControl',
         name: 'EmphasisControl',
-        component: () => import( /* webpackChunkName: "EmphasisControl"  */ "../components/Moudle_xs/EmphasisControl.vue"),
+        component: () => import( /* webpackChunkName: "EmphasisControl"  */ "../components/Moudle_xs/EmphasisControl/EmphasisControl.vue"),
         meta:{
             title:'重点管控专题'
         }
     },{
         path: 'WitBuilding',
         name: 'WitBuilding',
-        component: () => import( /* webpackChunkName: "WitBuilding"  */ "../components/Moudle_xs/WitBuilding.vue"),
+        component: () => import( /* webpackChunkName: "WitBuilding"  */ "../components/Moudle_xs/WitBuilding/WitBuilding.vue"),
         meta:{
             title:'智慧党建专题'
         }
     },{
         path: 'ComSecurity',
         name: 'ComSecurity',
-        component: () => import( /* webpackChunkName: "ComSecurity"  */ "../components/Moudle_xs/ComSecurity.vue"),
+        component: () => import( /* webpackChunkName: "ComSecurity"  */ "../components/Moudle_xs/ComSecurity/ComSecurity.vue"),
         meta:{
             title:'社区安全专题'
         }
     },{
         path: 'PubSanAndMed',
         name: 'PubSanAndMed',
-        component: () => import( /* webpackChunkName: "PubSanAndMed"  */ "../components/Moudle_xs/PubSanAndMed.vue"),
+        component: () => import( /* webpackChunkName: "PubSanAndMed"  */ "../components/Moudle_xs/PubSanAndMed/PubSanAndMed.vue"),
         meta:{
             title:'公共卫生医疗'
         }

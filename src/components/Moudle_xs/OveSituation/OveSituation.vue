@@ -20,6 +20,9 @@ export default {
         
     };
   },
+  created(){
+    console.log(this.$echarts)
+  },
 
   methods: {
      
