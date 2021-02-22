@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-20 10:36:08
+ * @LastEditTime: 2021-02-22 11:04:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\main.js
@@ -14,6 +14,8 @@ import control from './components/Pub.vue'
 import XS_Header from './components/header.vue'
 import XS_Body from './components/Body.vue'
 import * as echarts from 'echarts'
+
+import '@/assets/css/reset.css'
 import {
     router
 } from './router/router.js'
