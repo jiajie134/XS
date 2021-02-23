@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-20 13:50:25
- * @LastEditTime: 2021-02-23 09:10:47
+ * @LastEditTime: 2021-02-23 09:24:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Moudle_xs\Wit.vue
@@ -9,8 +9,11 @@
 <!--智慧党建-->
 
 <template>
-  <div class="WitBuilding layout" id="WitBuilding">
-      <div class="left">
+  <div
+    class="WitBuilding layout"
+    id="WitBuilding"
+  >
+    <div class="left">
       <com-statistics></com-statistics>
     </div>
     <div class="right">
@@ -24,11 +27,11 @@ export default {
   components: {
     "com-statistics": comstatistics,
   },
-  methods: {
-     
-  },
+  methods: {},
 };
 </script >
 <style scoped lang="less">
- 
+// #WitBuilding {
+//   height: 100%;
+// }
 </style>
