@@ -11,7 +11,7 @@
 <template>
   <div class="partyBuild">
     <div class="title">智慧党建</div>
-    <div class="cont-height">
+    <div class="content">
       <div class="left">
         <p class="num">313</p>
         <p>党员总数</p>
@@ -56,19 +56,21 @@ export default {
 </script >
 <style scoped lang="less">
 .partyBuild{
-    width: 100%;
-    height: auto;
-}
-.title {
-  background-image: url("../../../../assets/images/img/bg_title.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  height: 30px;
   width: 100%;
-  text-indent: 20px;
-  color: #4ffff7;
+  height: auto;
+  .title {
+    background-image: url("../../../../assets/images/img/bg_title.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 2.5rem /* 30/12 */;
+    line-height: 2.5rem /* 30/12 */;
+    width: 100%;
+    text-indent: 2.5rem /* 20/12 */;
+    color: #4ffff7;
+  }
 }
-.cont-height {
+
+.content {
   display: flex;
   width: 100%;
   height: calc(100% - 2.083vw);

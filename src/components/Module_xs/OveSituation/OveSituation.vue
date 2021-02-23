@@ -9,7 +9,7 @@
 <!--总体态势-->
 
 <template>
-  <div class="OveSituation" id="OveSituation">
+  <div class="OveSituation layout" id="OveSituation">
     <div class="leftBox">
       <partyBuild></partyBuild>
     </div>
@@ -42,13 +42,13 @@ export default {
     color: #fff;
     .leftBox{
       pointer-events: initial;
-      width: 20%;
+      // width: 20%;
       height: calc(100% - 20px);
       padding: 10px;
     }
     .rightBox{
       pointer-events: initial;
-      width: 20%;
+      // width: 20%;
       height: calc(100% - 20px);
       padding: 10px;
     }
