@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-04 10:32:16
- * @LastEditTime: 2021-02-20 12:03:31
+ * @LastEditTime: 2021-02-22 17:33:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\components\Live.vue
@@ -29,6 +29,7 @@ export default {
 <style scoped>
   .Body {
     width: 100%;
-    height: 94vh;
+    height: 90vh;
+    padding: .833333rem;
   }
 </style>

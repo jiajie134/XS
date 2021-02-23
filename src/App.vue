@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-20 15:00:06
+ * @LastEditTime: 2021-02-22 16:08:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\App.vue
@@ -11,7 +11,7 @@
   <div class="appVue">
 
     <router-view></router-view>
-    <iframe id="unityWin" :src="map" scrolling="no"></iframe>
+    <!-- <iframe id="unityWin" :src="map" scrolling="no"></iframe> -->
   </div>
 
 </template>
@@ -41,5 +41,6 @@ export default {
   height: 100%;
   box-sizing: border-box;
   overflow: hidden;
+  background-color: lightslategray;
 }
 </style>

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-22 11:04:39
+ * @LastEditTime: 2021-02-22 16:38:55
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\main.js
@@ -13,9 +13,11 @@ import App from './App.vue'
 import control from './components/Pub.vue'
 import XS_Header from './components/header.vue'
 import XS_Body from './components/Body.vue'
+import cardTitle from './components/cardTitle.vue'
 import * as echarts from 'echarts'
 
 import '@/assets/css/reset.css'
+import '@/assets/css/global.css'
 import {
     router
 } from './router/router.js'
@@ -27,6 +29,7 @@ const app = createApp(App);
 app.component('control', control)
 app.component('XS-Header', XS_Header)
 app.component('XS-Body', XS_Body)
+app.component('card-Title', cardTitle)
 
 
 app.use(router)

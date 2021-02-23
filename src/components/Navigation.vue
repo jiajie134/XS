@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-20 10:42:20
- * @LastEditTime: 2021-02-20 15:01:59
+ * @LastEditTime: 2021-02-22 14:15:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\navigation.vue
@@ -89,7 +89,7 @@ export default {
   mounted() {
   
   },
-};
+}
 </script >
 <style scoped lang="less">
 @import url("../assets/XSCSS/navigation.less");
