@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-22 17:37:26
- * @LastEditTime: 2021-02-23 14:48:59
+ * @LastEditTime: 2021-02-24 14:41:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Moudle_xs\OveSituation\left\ComStatistics.vue
@@ -73,15 +73,15 @@ export default {
   > div {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     height: 100%;
     position: absolute;
   }
   .layer {
     > .layerdiv {
-      width: 30%;
-      height: 30%;
+      width: 26%;
+      height: 35%;
       border: 0.083333rem /* 2/24 */ solid @motifColor;
       z-index: 5;
     }
@@ -90,8 +90,8 @@ export default {
     top: 1.666667rem /* 40/24 */;
     left: 1.666667rem /* 40/24 */;
     > .superdiv {
-      width: 30%;
-      height: 30%;
+      width: 26%;
+      height: 35%;
       z-index: 6;
       border: 0.083333rem /* 2/24 */ solid @motifColor;
       display: flex;
