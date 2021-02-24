@@ -6,11 +6,11 @@
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Moudle_xs\OveSituation.vue
 -->
-<!--总体态势 党建-->
+<!--总体态势 人口类型-->
 
 <template>
   <div class="partyBuild">
-    <div class="title">智慧党建</div>
+    <div class="title">人口类型</div>
     <div class="content">
       <div class="left">
         <p class="num color-yl">313</p>

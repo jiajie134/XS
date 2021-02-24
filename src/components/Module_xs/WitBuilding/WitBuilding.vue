@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-20 13:50:25
- * @LastEditTime: 2021-02-23 09:24:35
+ * @LastEditTime: 2021-02-23 10:08:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Moudle_xs\Wit.vue
@@ -31,7 +31,7 @@ export default {
 };
 </script >
 <style scoped lang="less">
-// #WitBuilding {
-//   height: 100%;
-// }
+ #WitBuilding {
+   height: 100%;
+ }
 </style>

@@ -2,6 +2,7 @@
     font-family: 'LCDFont';
     src: url('../woff/digital-7-_italic_.woff');
 }
+
 @media screen and (min-width:1920px) {
     html{
         font-size: 12px;

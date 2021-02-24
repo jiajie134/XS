@@ -6,41 +6,13 @@
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Moudle_xs\OveSituation.vue
 -->
-<!--总体态势 党建-->
+<!--总体态势 平安社区-->
 
 <template>
-  <div class="partyBuild">
-    <div class="title">智慧党建</div>
+  <div class="comSafety">
+    <div class="title">平安社区</div>
     <div class="content">
-      <div class="left">
-        <p class="num color-yl">313</p>
-        <p>党员总数</p>
-      </div>
-      <div class="right">
-        <p class="color-qj padding-bottom">领导班子</p>
-        <div class="main padding-bottom">
-          <div>社区党支部书记:<span class="color-yl">1</span>人</div>
-          <div>党支部副书记:<span class="color-yl">1</span>人</div>
-        </div>
-        <p class="color-qj padding-bottom">党组织机构</p>
-        <div class="main-btn">
-          <div class="btn-wrap">
-            <p><span class="color-yl">7</span>人</p>
-            <p class="p2">党支部</p>
-            <div class="Img"></div>
-          </div>
-          <div class="btn-wrap">
-            <p><span class="color-yl">18</span>人</p>
-            <p class="p2">居民党小组</p>
-            <div class="Img"></div>
-          </div>
-          <div class="btn-wrap">
-            <p><span class="color-yl">21</span>人</p>
-            <p class="p2">党员责任区</p>
-            <div class="Img"></div>
-          </div>
-        </div>
-      </div>
+      
     </div>
   </div>
 </template>
@@ -55,7 +27,7 @@ export default {
 };
 </script >
 <style scoped lang="less">
-.partyBuild {
+.comSafety {
   width: 100%;
   height: auto;
   color: #fff;
@@ -73,6 +45,7 @@ export default {
   .content {
     display: flex;
     justify-content: space-between;
+    height: 15rem;
     background-image: linear-gradient(
       0deg,
       rgba(12, 42, 76, 0.6) 0%,

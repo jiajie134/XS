@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-20 13:55:52
- * @LastEditTime: 2021-02-20 13:56:11
+ * @LastEditTime: 2021-02-23 10:08:26
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Moudle_xs\OveSituation.vue
@@ -10,19 +10,39 @@
 
 <template>
   <div class="OveSituation layout" id="OveSituation">
-    <div class="leftBox">
+    <div class="left">
       <partyBuild></partyBuild>
+      <community></community>
+      <communityManage></communityManage>
+      <keyControl></keyControl>
     </div>
-    <div class="rightBox">
-
+    <div class="right">
+      <comProfile></comProfile>
+      <specialGroup></specialGroup>
+      <safety></safety>
+      <keyCoPopTypetrol></keyCoPopTypetrol>
     </div>
   </div>
 </template>
 <script>
-import partyBuild from './left/partyBuild'
+import partyBuild from './left/PartyBuild'
+import community from './left/Community'
+import communityManage from './left/CommunityManage'
+import keyControl from './left/KeyControl'
+import comProfile from './right/ComProfile'
+import specialGroup from './right/SpecialGroup'
+import safety from './right/Safety'
+import keyCoPopTypetrol from './right/PopType'
 export default {
   components:{
-    partyBuild
+    partyBuild,
+    community,
+    communityManage,
+    keyControl,
+    comProfile,
+    specialGroup,
+    safety,
+    keyCoPopTypetrol
   },
   created(){
     console.log(this.$echarts)
@@ -33,25 +53,8 @@ export default {
   },
 };
 </script >
-<style scoped lang="less">
-  .OveSituation{
-    width: 100%;
+<style lang="less">
+  #OveSituation {
     height: 100%;
-    display: flex;
-    justify-content: space-between;
-    color: #fff;
-    .leftBox{
-      pointer-events: initial;
-      // width: 20%;
-      height: calc(100% - 20px);
-      padding: 10px;
-    }
-    .rightBox{
-      pointer-events: initial;
-      // width: 20%;
-      height: calc(100% - 20px);
-      padding: 10px;
-    }
   }
-    
 </style>
