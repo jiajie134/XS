@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-22 16:38:55
+ * @LastEditTime: 2021-02-23 16:47:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\main.js
@@ -47,4 +47,5 @@ router.beforeEach((to, from, next) => {
     }
     next()
 })
+
 app.mount('#app')

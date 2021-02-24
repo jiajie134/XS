@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-20 14:29:55
+ * @LastEditTime: 2021-02-23 10:51:22
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\components\HelloWorld.vue
@@ -18,33 +18,26 @@
 <script>
 // import {ref,reactive} from 'vue'
 // import {useRouter} from 'vue-router'
-import {useStore} from 'vuex'
-import navAction from './Navigation'
+import { useStore } from "vuex";
+import navAction from "./Navigation.vue";
 export default {
   name: "HelloWorld",
   // inheritAttrs: false,
-  props: {
-    
-  },
-  setup(){
+  props: {},
+  setup() {
     const store = useStore();
     return {
-      store
-    }
-  },
-   components:{
-    navAction
-  },
-  data() {
-    return {
-    
+      store,
     };
   },
-  created() {
+  components: {
+    navAction,
   },
-  methods: {
- 
+  data() {
+    return {};
   },
+  created() {},
+  methods: {},
 };
 </script>
 

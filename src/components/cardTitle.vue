@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-22 16:23:58
- * @LastEditTime: 2021-02-22 18:03:59
+ * @LastEditTime: 2021-02-23 14:59:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\cardTitle.vue
@@ -36,6 +36,7 @@ export default {
     width: 100%;
     display: flex;
     align-items: center;
+    height: 2.916667rem /* 70/24 */;
     >div {
         width: 2.083333rem;
         height: 2.083333rem;

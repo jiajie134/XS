@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-22 16:08:30
+ * @LastEditTime: 2021-02-23 17:08:37
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\App.vue
@@ -21,16 +21,15 @@ export default {
   name: "App",
   data() {
     return {
-      map:this.BASEURL+'unity_index.html'
+      map: this.BASEURL + "unity_index.html",
     };
   },
-  beforeCreate(){
-
+  beforeCreate() {},
+  methods: {
+   
   },
-  components: {},
-  methods: {},
   mounted() {
-  
+    
   },
 };
 </script>
