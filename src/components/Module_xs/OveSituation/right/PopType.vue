@@ -9,134 +9,437 @@
 <!--总体态势 人口类型-->
 
 <template>
-  <div class="partyBuild">
+  <div class="partyBuild margin-b">
     <div class="title">人口类型</div>
-    <div class="content">
-      <div class="left">
-        <p class="num color-yl">313</p>
-        <p>党员总数</p>
-      </div>
-      <div class="right">
-        <p class="color-qj padding-bottom">领导班子</p>
-        <div class="main padding-bottom">
-          <div>社区党支部书记:<span class="color-yl">1</span>人</div>
-          <div>党支部副书记:<span class="color-yl">1</span>人</div>
-        </div>
-        <p class="color-qj padding-bottom">党组织机构</p>
-        <div class="main-btn">
-          <div class="btn-wrap">
-            <p><span class="color-yl">7</span>人</p>
-            <p class="p2">党支部</p>
-            <div class="Img"></div>
-          </div>
-          <div class="btn-wrap">
-            <p><span class="color-yl">18</span>人</p>
-            <p class="p2">居民党小组</p>
-            <div class="Img"></div>
-          </div>
-          <div class="btn-wrap">
-            <p><span class="color-yl">21</span>人</p>
-            <p class="p2">党员责任区</p>
-            <div class="Img"></div>
-          </div>
-        </div>
-      </div>
+    <div class="content flex">
+      <div id="demography"></div>
+      <div id="householdSta"></div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  setup(){
-    return{
-    }
+  setup() {
+    const data1 = [
+      {
+        name: "户籍人口",
+        value: 2000,
+        unit: "人",
+      },
+      {
+        name: "流动人口",
+        value: 1000,
+        unit: "人",
+      },
+    ];
+    const data2 = [
+      {
+        name: "户籍户数",
+        value: 2607,
+        itemStyle: {
+          color: {
+            type: "liner",
+            x: 0,
+            y: 0,
+            x2: 0,
+            y2: 1,
+            colorStops: [
+              {
+                offset: 0,
+                color: "#0b9eff",
+              },
+              {
+                offset: 1,
+                color: "#63caff",
+              },
+            ],
+          },
+        },
+      },
+      {
+        name: "其他",
+        value: 5903,
+        itemStyle: {
+          color: {
+            type: "liner",
+            x: 0,
+            y: 0,
+            x2: 0,
+            y2: 1,
+            colorStops: [
+              {
+                offset: 0,
+                color: "#0FD700",
+              },
+              {
+                offset: 1,
+                color: "#FFD700",
+              },
+            ],
+          },
+        },
+      },
+    ];
+    let _chart1, _chart2;
+    return {
+      data1,
+      data2,
+      _chart1,
+      _chart2,
+    };
   },
-  created() {},
-  methods: {},
+  mounted() {
+    this._chart1 = this.$echarts.init(document.getElementById("demography"));
+    this._chart2 = this.$echarts.init(document.getElementById("householdSta"));
+    this.initChart(this._chart1, this.data1);
+    this.initChart2(this._chart2, this.data2);
+  },
+  methods: {
+    initChart(echart, data) {
+      let color = ["#0b9eff", "#63caff"];
+      let arrName = [];
+      let arrValue = [];
+      let sum = 0;
+      let pieSeries = [],
+        lineYAxis = [];
+      // 数据处理
+      data.forEach((v, i) => {
+        arrName.push(v.name); //名字集合
+        arrValue.push(v.value); //value集合
+        sum = sum + v.value; //总人数
+      });
+
+      // 图表option整理
+      data.forEach((v, i) => {
+        pieSeries.push({
+          left: "20%",
+          name: "",
+          type: "pie",
+          clockWise: false,
+          hoverAnimation: false,
+          radius: [65 - i * 15 + "%", 57 - i * 15 + "%"],
+          center: ["50%", "50%"],
+          label: {
+            show: false,
+          },
+          itemStyle: {
+            color: {
+              type: "liner",
+              x: 0,
+              y: 0,
+              x2: 0,
+              y2: 1,
+              colorStops: [
+                {
+                  offset: 0,
+                  color: "#0b9eff",
+                },
+                {
+                  offset: 1,
+                  color: "#63caff",
+                },
+              ],
+            },
+          },
+          data: [
+            {
+              value: v.value,
+              name: v.name,
+            },
+            {
+              value: sum - v.value,
+              name: "",
+              itemStyle: {
+                color: "rgba(0,0,0,0)",
+              },
+            },
+          ],
+        });
+        pieSeries.push({
+          left: "20%",
+          name: "",
+          type: "pie",
+          silent: true,
+
+          z: 1,
+          clockWise: false, //顺时加载
+          hoverAnimation: false, //鼠标移入变大
+          radius: [65 - i * 15 + "%", 57 - i * 15 + "%"],
+          center: ["50%", "50%"],
+          label: {
+            show: false,
+          },
+          data: [
+            {
+              value: 7.5,
+              itemStyle: {
+                color: "rgba(255,255,255,0.1)", //圆环颜色
+              },
+            },
+            {
+              value: 2.5,
+              name: "",
+              itemStyle: {
+                color: "rgba(0,0,0,0)",
+              },
+            },
+          ],
+        });
+        v.percent = ((v.value / sum) * 100).toFixed(1) + "%";
+        lineYAxis.push({
+          value: i,
+          textStyle: {
+            rich: {
+              circle: {
+                color: color[i],
+                padding: [0, 0],
+              },
+            },
+          },
+        });
+      });
+      let option = {
+        // backgroundColor:'#000',
+        color: color,
+        grid: {
+          top: "10%",
+          bottom: "54%",
+          left: "42%",
+          containLabel: false,
+        },
+
+        yAxis: [
+          {
+            type: "category",
+            inverse: true,
+            position: "right",
+            axisLine: {
+              show: false,
+            },
+            axisTick: {
+              show: false,
+            },
+            axisLabel: {
+              formatter: function (params) {
+                let item = data[params];
+                return "{line|}{circle|●}{name|" + item.name + "}";
+              },
+              interval: 0,
+              inside: true,
+              textStyle: {
+                color: "#fa930d", //元字颜色
+                fontSize: 10,
+                rich: {
+                  line: {
+                    width: 1,
+                    height: 2, //标线高度
+                    backgroundColor: "rgba(255,255,255,0.1)", //标线颜色
+                  },
+                  name: {
+                    color: "#beceff",
+                    fontSize: 12,
+                  },
+                  bd: {
+                    color: "#beceff",
+                    padding: [0, 5],
+                    fontSize: 10,
+                  },
+                  percent: {
+                    color: "#beceff",
+                    fontSize: 12,
+                  },
+                  value: {
+                    color: "#fa930d",
+                    fontSize: 12,
+                    fontWeight: 500,
+                    padding: [0, 0, 0, 20],
+                  },
+                  unit: {
+                    fontSize: 10,
+                  },
+                },
+              },
+              show: true,
+            },
+            data: lineYAxis,
+          },
+        ],
+        xAxis: [
+          {
+            show: false,
+          },
+        ],
+        title: {
+          show: true,
+          text: "人口统计",
+          textStyle: {
+            color: "#0b9eff",
+            fontSize: 15,
+          },
+        },
+        series: pieSeries,
+      };
+      echart.setOption(option);
+    },
+    initChart2(echart, data) {
+      let tooltip = {
+        trigger: "item",
+        alwaysShowContent: true,
+        formatter: function (params) {
+          if (params.name === "one") {
+            return "";
+          } else {
+            return params.name + ":" + params.value;
+          }
+        },
+      };
+      let arrName = [],
+        arrValue = [],
+        sum = 0,
+        emphasis = {
+          label: {
+            show: false,
+          },
+        },
+        highlight = {
+          lable: {
+            show: false,
+          },
+        },
+        downplay = {
+          lable: {
+            show: false,
+          },
+        },
+        sunDatas = [];
+      // 数据处理
+      data.forEach((v, i) => {
+        arrName.push(v.name); //名字集合
+        arrValue.push(v.value); //value集合
+        sum = sum + v.value; //总人数
+      });
+      let color = ["#0b9eff", "#FFD700"];
+      let pieDatas = [];
+      var c;
+      for (var i = 0; i < 2; i++) {
+        i == 0 ? (c = "#0b9eff") : (c = "#FFD700");
+        pieDatas.push({
+          left: "20%",
+          name: "",
+          type: "pie",
+          silent: true,
+          z: 2,
+          clockWise: false, //顺时加载
+          hoverAnimation: false, //鼠标移入变大
+          radius: [40 - i * 10 + "%", 39 - i * 10 + "%"],
+          center: ["50%", "50%"],
+          label: {
+            show: false,
+          },
+          data: [
+            {
+              value: 1,
+              itemStyle: {
+                color: c, //圆环颜色
+              },
+            },
+          ],
+        });
+      }
+      pieDatas.push({
+        name: "业务指标",
+        type: "gauge",
+        detail: {
+          offsetCenter: [0, -20],
+          formatter: " ",
+        },
+        tooltip: {
+          trigger: "item",
+          formatter: function (params) {
+            return "";
+          },
+        },
+
+        radius: "65%",
+        clockwise: false,
+        startAngle: "90",
+        endAngle: "449.999",
+        splitNumber: 25,
+        pointer: {
+          show: false,
+        },
+        splitLine: {
+          show: true,
+          length: 10,
+          lineStyle: {
+            color: "#051f54",
+            width: 1,
+          },
+        },
+        axisLabel: {
+          show: false,
+        },
+        axisTick: {
+          show: false,
+        },
+        axisLine: {
+          show: true,
+
+          lineStyle: {
+            width: 8,
+            color: [
+              [
+                1,
+                new this.$echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                  {
+                    offset: (data[0].value / sum).toFixed(1),
+                    color: "#FFC600",
+                  },
+                  {
+                    offset: (data[1].value / sum).toFixed(1),
+                    color: "#0B95FF",
+                  },
+                ]),
+              ],
+            ],
+          },
+        },
+      });
+
+      let option = {
+        grid: {
+          top: "10%",
+          bottom: "54%",
+          left: "42%",
+          containLabel: false,
+        },
+        // tooltip: tooltip,
+        title: {
+          show: true,
+          text: "户数统计",
+          textStyle: {
+            color: "#0b9eff",
+            fontSize: 12,
+          },
+        },
+        series: pieDatas,
+      };
+      echart.setOption(option);
+    },
+  },
 };
 </script >
 <style scoped lang="less">
+@import url("~@/assets/XSCSS/common/oveSituation.less");
 .partyBuild {
-  width: 100%;
-  height: auto;
   color: #fff;
-  margin-bottom: .833333rem /* 20/24 */;
-  .title {
-    background-image: url("../../../../assets/images/img/bg_title.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 2.5rem /* 30/12 */;
-    line-height: 2.5rem /* 30/12 */;
-    width: 100%;
-    text-indent: 2.5rem /* 20/12 */;
-    color: #4ffff7;
-  }
   .content {
-    display: flex;
-    justify-content: space-between;
-    background-image: linear-gradient(
-      0deg,
-      rgba(12, 42, 76, 0.6) 0%,
-      rgba(12, 42, 76, 0.4) 25%,
-      rgba(12, 42, 76, 0.2) 50%,
-      rgba(12, 42, 76, 0) 100%
-    );
-    border: 1px solid rgba(7, 86, 105, 0.4);
-    padding: 0.833333rem /* 20/24 */;
-    .left {
-      width: 12rem /* 250/24 */ /* 400/24 */ /* 200/24 */;
-      height: 12rem /* 200/24 */;
-      background: url("../../../../assets/images/img/dyzs.png") no-repeat center
-        center;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      padding-top: 1.042vw;
-      padding-right: 0.391vw;
-      box-sizing: border-box;
-      .num {
-        font-size: 2rem /* 48/24 */;
-      }
+    height: 15rem;
+    #demography,
+    #householdSta {
+      width: 48%;
+      height: 100%;
     }
-    .right {
-      width: 25rem /* 600/24 */;
-      .color-qj {
-        color: #6ec3df;
-      }
-      .padding-bottom {
-        margin-bottom: 0.833333rem /* 20/24 */;
-      }
-      .main {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        > div {
-          text-align: left;
-          width: 50%;
-        }
-      }
-      .main-btn {
-        display: flex;
-        justify-content: space-between;
-        .btn-wrap {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-          .Img {
-            width: 3.646vw;
-            height: 2.214vw;
-            background: url("../../../../assets/images/img/dyzs_bt.png")
-              no-repeat center center;
-            background-size: cover;
-          }
-        }
-      }
-    }
-  }
-  .color-yl {
-    color: #ffb400;
   }
 }
 </style>

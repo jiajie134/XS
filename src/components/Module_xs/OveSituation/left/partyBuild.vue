@@ -9,33 +9,33 @@
 <!--总体态势 党建-->
 
 <template>
-  <div class="partyBuild">
+  <div class="partyBuild margin-b">
     <div class="title">智慧党建</div>
     <div class="content">
       <div class="left">
-        <p class="num color-yl">313</p>
+        <p class="num color-y">313</p>
         <p>党员总数</p>
       </div>
       <div class="right">
         <p class="color-qj padding-bottom">领导班子</p>
         <div class="main padding-bottom">
-          <div>社区党支部书记:<span class="color-yl">1</span>人</div>
-          <div>党支部副书记:<span class="color-yl">1</span>人</div>
+          <div>社区党支部书记:<span class="color-y">1</span>人</div>
+          <div>党支部副书记:<span class="color-y">1</span>人</div>
         </div>
         <p class="color-qj padding-bottom">党组织机构</p>
         <div class="main-btn">
           <div class="btn-wrap">
-            <p><span class="color-yl">7</span>人</p>
+            <p><span class="color-y">7</span>人</p>
             <p class="p2">党支部</p>
             <div class="Img"></div>
           </div>
           <div class="btn-wrap">
-            <p><span class="color-yl">18</span>人</p>
+            <p><span class="color-y">18</span>人</p>
             <p class="p2">居民党小组</p>
             <div class="Img"></div>
           </div>
           <div class="btn-wrap">
-            <p><span class="color-yl">21</span>人</p>
+            <p><span class="color-y">21</span>人</p>
             <p class="p2">党员责任区</p>
             <div class="Img"></div>
           </div>
@@ -55,37 +55,17 @@ export default {
 };
 </script >
 <style scoped lang="less">
+@import url('~@/assets/XSCSS/common/oveSituation.less');
 .partyBuild {
-  width: 100%;
-  height: auto;
   color: #fff;
-  margin-bottom: .833333rem /* 20/24 */;
-  .title {
-    background-image: url("../../../../assets/images/img/bg_title.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 2.5rem /* 30/12 */;
-    line-height: 2.5rem /* 30/12 */;
-    width: 100%;
-    text-indent: 2.5rem /* 20/12 */;
-    color: #4ffff7;
-  }
   .content {
+    height: 15rem;
     display: flex;
     justify-content: space-between;
-    background-image: linear-gradient(
-      0deg,
-      rgba(12, 42, 76, 0.6) 0%,
-      rgba(12, 42, 76, 0.4) 25%,
-      rgba(12, 42, 76, 0.2) 50%,
-      rgba(12, 42, 76, 0) 100%
-    );
-    border: 1px solid rgba(7, 86, 105, 0.4);
-    padding: 0.833333rem /* 20/24 */;
     .left {
       width: 12rem /* 250/24 */ /* 400/24 */ /* 200/24 */;
       height: 12rem /* 200/24 */;
-      background: url("../../../../assets/images/img/dyzs.png") no-repeat center
+      background: url("~@/assets/images/img/dyzs.png") no-repeat center
         center;
       background-size: cover;
       display: flex;
@@ -127,16 +107,13 @@ export default {
           .Img {
             width: 3.646vw;
             height: 2.214vw;
-            background: url("../../../../assets/images/img/dyzs_bt.png")
+            background: url("~@/assets/images/img/dyzs_bt.png")
               no-repeat center center;
             background-size: cover;
           }
         }
       }
     }
-  }
-  .color-yl {
-    color: #ffb400;
   }
 }
 </style>

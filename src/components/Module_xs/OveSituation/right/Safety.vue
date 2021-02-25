@@ -9,17 +9,117 @@
 <!--总体态势 平安社区-->
 
 <template>
-  <div class="comSafety">
+  <div class="comSafety margin-b">
     <div class="title">平安社区</div>
-    <div class="content">
-      
+    <div class="content flex">
+      <div v-for="(item,index) in dataList" :key="index" class="con_item">
+        <p class="item_title color-b">{{item.title}}</p>
+        <div class="item">
+          <div v-for="(em,index) in item.item" :key="index" class="flex item">
+            <span>{{em.name}}</span>
+            <span class="color-y">{{em.count}}</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
   setup(){
+    const dataList = [
+      {
+        title:'执法队伍',
+        item:[
+          {
+            name:'社区警务室',
+            count:1,
+          },
+          {
+            name:'专职警员',
+            count:1,
+          },
+          {
+            name:'辅警',
+            count:16,
+          },{
+            name:'执法电瓶车',
+            count:3,
+          },{
+            name:'单警装备',
+            count:5,
+          },{
+            name:'天网监控点位',
+            count:129,
+          },{
+            name:'监控摄像接入',
+            count:141,
+          }
+        ]
+      }, {
+        title:'执法事件',
+        item:[
+          {
+            name:'居民证办理',
+            count:6134,
+          },
+          {
+            name:'纠纷调解',
+            count:4,
+          },
+          {
+            name:'群众求助',
+            count:30,
+          },{
+            name:'扫黑除恶',
+            count:1,
+          },{
+            name:'禁毒预防宣传',
+            count:10,
+          }
+        ]
+      }, {
+        title:'重点人群管控',
+        item:[
+          {
+            name:'社区矫正人员',
+            count:1,
+          },
+          {
+            name:'刑满释放人员',
+            count:24,
+          },
+          {
+            name:'吸毒人员',
+            count:164,
+          },{
+            name:'33333',
+            count:132,
+          }
+        ]
+      }, {
+        title:'社区管理',
+        item:[
+          {
+            name:'社区工作人员',
+            count:9,
+          },
+          {
+            name:'群防群治人员',
+            count:83,
+          },
+          {
+            name:'网格员',
+            count:3,
+          },{
+            name:'调解员',
+            count:7,
+          }
+        ]
+      },
+    ]
     return{
+      dataList
     }
   },
   created() {},
@@ -27,89 +127,30 @@ export default {
 };
 </script >
 <style scoped lang="less">
+@import url('~@/assets/XSCSS/common/oveSituation.less');
 .comSafety {
-  width: 100%;
-  height: auto;
   color: #fff;
-  margin-bottom: .833333rem /* 20/24 */;
-  .title {
-    background-image: url("../../../../assets/images/img/bg_title.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 2.5rem /* 30/12 */;
-    line-height: 2.5rem /* 30/12 */;
-    width: 100%;
-    text-indent: 2.5rem /* 20/12 */;
-    color: #4ffff7;
-  }
   .content {
-    display: flex;
-    justify-content: space-between;
     height: 15rem;
-    background-image: linear-gradient(
-      0deg,
-      rgba(12, 42, 76, 0.6) 0%,
-      rgba(12, 42, 76, 0.4) 25%,
-      rgba(12, 42, 76, 0.2) 50%,
-      rgba(12, 42, 76, 0) 100%
-    );
-    border: 1px solid rgba(7, 86, 105, 0.4);
-    padding: 0.833333rem /* 20/24 */;
-    .left {
-      width: 12rem /* 250/24 */ /* 400/24 */ /* 200/24 */;
-      height: 12rem /* 200/24 */;
-      background: url("../../../../assets/images/img/dyzs.png") no-repeat center
-        center;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      padding-top: 1.042vw;
-      padding-right: 0.391vw;
-      box-sizing: border-box;
-      .num {
-        font-size: 2rem /* 48/24 */;
+    flex-wrap: wrap;
+    .con_item{
+      width: 48%;
+      .item_title{
+        height: 1.625rem /* 39/24 */;
+        line-height: 1.625rem /* 39/24 */;
       }
-    }
-    .right {
-      width: 25rem /* 600/24 */;
-      .color-qj {
-        color: #6ec3df;
-      }
-      .padding-bottom {
-        margin-bottom: 0.833333rem /* 20/24 */;
-      }
-      .main {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        > div {
-          text-align: left;
-          width: 50%;
-        }
-      }
-      .main-btn {
-        display: flex;
-        justify-content: space-between;
-        .btn-wrap {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+      .item{
+        >div{
+          height: 2.5rem /* 30/24 */;
+          background-color: rgba(4, 32, 59, 0.5);
           align-items: center;
-          position: relative;
-          .Img {
-            width: 3.646vw;
-            height: 2.214vw;
-            background: url("../../../../assets/images/img/dyzs_bt.png")
-              no-repeat center center;
-            background-size: cover;
-          }
+          padding: 0 .416667rem /* 10/24 */;
+          box-sizing: border-box;
+          margin-bottom: .625rem /* 15/24 */;
         }
+        
       }
     }
-  }
-  .color-yl {
-    color: #ffb400;
   }
 }
 </style>

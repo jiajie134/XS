@@ -9,7 +9,7 @@
 <!--总体态势 社区概况-->
 
 <template>
-  <div class="partyBuild">
+  <div class="partyBuild margin-b">
     <div class="title">社区概况</div>
     <div class="content">
       <table class="con_table" cellpadding="0" cellspacing="0">
@@ -59,6 +59,21 @@ export default {
         houseNum:0,
         buildNum:0,
         unitNum:0,
+      }, {
+        name:'444',
+        houseNum:0,
+        buildNum:0,
+        unitNum:0,
+      }, {
+        name:'444',
+        houseNum:0,
+        buildNum:0,
+        unitNum:0,
+      }, {
+        name:'444',
+        houseNum:0,
+        buildNum:0,
+        unitNum:0,
       },
     ]
     return{
@@ -70,34 +85,11 @@ export default {
 };
 </script >
 <style scoped lang="less">
+@import url('~@/assets/XSCSS/common/oveSituation.less');
 .partyBuild {
-  width: 100%;
-  height: auto;
   color: #fff;
-  margin-bottom: .833333rem /* 20/24 */;
-  .title {
-    background-image: url("../../../../assets/images/img/bg_title.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 2.5rem /* 30/12 */;
-    line-height: 2.5rem /* 30/12 */;
-    width: 100%;
-    text-indent: 2.5rem /* 20/12 */;
-    color: #4ffff7;
-  }
   .content {
-    display: flex;
-    justify-content: space-between;
     height: 20rem;
-    background-image: linear-gradient(
-      0deg,
-      rgba(12, 42, 76, 0.6) 0%,
-      rgba(12, 42, 76, 0.4) 25%,
-      rgba(12, 42, 76, 0.2) 50%,
-      rgba(12, 42, 76, 0) 100%
-    );
-    border: 1px solid rgba(7, 86, 105, 0.4);
-    padding: 0.833333rem /* 20/24 */;
     .con_table{
       width: 100%;
       thead{

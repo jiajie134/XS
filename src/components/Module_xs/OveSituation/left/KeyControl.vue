@@ -8,10 +8,10 @@
 -->
 <!--总体态势 重点管控-->
 <template>
-  <div class="keyControl">
+  <div class="keyControl margin-b">
     <div class="title">重点管控</div>
     <div class="content">
-      <div class="selectField">
+      <div class="selectField flex">
         <i class="focus"></i>
         <select name="" id="">
           <option value="">社区监控</option>
@@ -34,35 +34,16 @@ export default {
 };
 </script >
 <style scoped lang="less">
+@import url('~@/assets/XSCSS/common/oveSituation.less');
 .keyControl {
-  width: 100%;
-  height: auto;
   color: #fff;
-  .title {
-    background-image: url("../../../../assets/images/img/bg_title.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 2.5rem /* 30/12 */;
-    line-height: 2.5rem /* 30/12 */;
-    width: 100%;
-    text-indent: 2.5rem /* 20/12 */;
-    color: #4ffff7;
-  }
   .content {
-    display: flex;
-    justify-content: space-between;
-    background-image: linear-gradient(
-      0deg,
-      rgba(12, 42, 76, 0.6) 0%,
-      rgba(12, 42, 76, 0.4) 25%,
-      rgba(12, 42, 76, 0.2) 50%,
-      rgba(12, 42, 76, 0) 100%
-    );
-    border: 1px solid rgba(7, 86, 105, 0.4);
-    padding: 0.833333rem /* 20/24 */;
+    height: 15rem;
     .selectField{
-      display: flex;
-      justify-content: space-between;
+      border: 1px solid rgba(11, 158, 255, 0.2);
+      height: 2.5rem /* 60/24 */;
+      line-height: 2.5rem;
+      align-items: center;
       .focus{
         width: 1.2rem /* 20/24 */;
         height: 1.2rem /* 20/24 */;
@@ -73,7 +54,7 @@ export default {
       }
       select{
         height: 1.25rem /* 30/24 */;
-        width: 37rem /* 800/24 */;
+        width: 40rem /* 800/24 */;
         background-color: transparent;
         border: none;
         color: #0ff;
