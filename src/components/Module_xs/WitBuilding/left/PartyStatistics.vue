@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-23 11:11:18
- * @LastEditTime: 2021-02-24 18:02:35
+ * @LastEditTime: 2021-02-25 16:15:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Module_xs\WitBuilding\left\PartyStatistics.vue
@@ -64,6 +64,7 @@ import { SexStatis, BuildCom, PerBuild } from "@/js/myCharts.js";
 export default {
   setup() {
     provide("leftTitle", "党员统计");
+    //党龄数据
     const StatisData = reactive({
       data: [
         {
@@ -93,6 +94,7 @@ export default {
         },
       ],
     });
+    //年龄统计
     const StatisDatage = reactive({
       data: [
         {
@@ -122,7 +124,14 @@ export default {
         },
       ],
     });
+    //性别统计
+    const statisDataSex = reactive({
+      data:[{
+        id:'edustatis'
+      }]
+    })
     return {
+      statisDataSex,
       StatisData,
       StatisDatage,
     };
@@ -132,10 +141,10 @@ export default {
   },
   created() {},
   mounted() {
-    SexStatis(this.$echarts, "edustatis");
+    SexStatis(this.$echarts, this.statisDataSex);
     BuildCom(this.StatisData, this.$echarts);
-    BuildCom(this.StatisDatage, this.$echarts);
-    PerBuild(this.$echarts,'PerBuild');
+    // BuildCom(this.StatisDatage, this.$echarts);
+    // PerBuild(this.$echarts,'PerBuild');
   },
   computed: {},
   watch: {},

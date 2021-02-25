@@ -1,37 +1,68 @@
 /*
  * @Author: your name
  * @Date: 2021-02-23 15:47:11
- * @LastEditTime: 2021-02-24 17:50:36
+ * @LastEditTime: 2021-02-25 16:50:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\js\myCharts.js\
  */
 import {
     reactive,
-    ref,
-    watch,
 } from 'vue'
-let barWidth;
+let barWidth, door = true;
 let fontSize = reactive({
-    size:{
-        fontSize:parseInt(window.innerWidth / 100) 
+    size: {
+        fontSize: parseInt(window.innerWidth / 100)
     }
-})
+});
 
-let onresize = function($e){
-    test()
+let echartsArr = [],
+    timer;
+
+function fS(res) {
+    let docEl = document.documentElement,
+        clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if (!clientWidth) return;
+    let fontSize = 100 * (clientWidth / 1920);
+    return res * fontSize;
 }
-export function test(){console.log(111)
-    window.onresize =()=>{
-        // $e.setOption(option)
-        console.log('set option')
+// 防抖函数
+let debounce = function (echartsArr, wait) {
+    // 闭包
+    return function () {
+        timer && clearTimeout(timer);
+        timer = setTimeout(() => {
+            // 需要防抖的操作...
+            fontSize.size.fontSize = parseInt(window.innerWidth / 100);
+            door = false;
+            echartsArr.forEach((echarted, i) => {
+                const {
+                    $e,
+                    echarts,
+                    dataArr
+                } = echarted;
+                $e.clear && $e.clear();
+                switch (i) {
+                    case 0:
+                        SexStatis(echarts, dataArr);
+                        break;
+                    case 1:
+                        $e.forEach((item,e)=>{
+                            item.clear();
+                            YearStatis(echarts,dataArr.data[e])
+                        })
+                        break;
+                }
+            })
+        }, wait);
     }
+
 }
 //  智慧党建性别统计
-export function SexStatis(echarts, id) {
+export function SexStatis(echarts, statisDataSex) {
     let getArrayValue, array2obj, getData, data, option;
     let arrName, arrValue, sumValue, objData, optionData;
-    let $e = echarts.init(document.getElementById(id));
+    let $e = echarts.init(document.getElementById(statisDataSex.data[0].id));
     getArrayValue = function (array, key) {
         var key = key || "value";
         var res = [];
@@ -184,7 +215,7 @@ export function SexStatis(echarts, id) {
             textStyle: {
                 rich: {
                     title: {
-                        fontSize: 40,
+                        fontSize: fS(0.16),
                         color: "rgb(0, 178, 246)"
                     },
                     value: {
@@ -206,7 +237,14 @@ export function SexStatis(echarts, id) {
         series: optionData.series
     };
     $e.setOption(option)
-    onresize($e)
+    $e.resize()
+    if (door) {
+        echartsArr.push({
+            $e,
+            echarts,
+            dataArr: statisDataSex,
+        })
+    }
 }
 
 //智慧党建  党龄/年龄统计表
@@ -337,12 +375,21 @@ let YearStatis = function (echarts, item) {
         }]
     }
     $e.setOption(option)
-    window.onresize = function () {
-        $e.resize()
+    $e.resize()
+    if (door) {
+        echartsArr[1].$e.push($e)
     }
+
 }
 
 export function BuildCom(StatisData, echarts) {
+    if (door) {
+        echartsArr[1] = {
+            dataArr: StatisData,
+            echarts,
+            $e: []
+        }
+    }
     StatisData.data.forEach((item, i) => {
         YearStatis(echarts, item)
     })
@@ -496,7 +543,10 @@ export function PerBuild(echarts, id) {
         ],
     };
     $e.setOption(option)
-    window.onresize = function () {
-        $e.resize()
-    }
+    echartsArr.push($e)
 }
+
+window.addEventListener("resize", function () {
+    let Resize = debounce(echartsArr, 50);
+    Resize()
+});
