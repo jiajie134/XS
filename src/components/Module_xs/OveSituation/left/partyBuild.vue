@@ -1,7 +1,7 @@
 <!--
  * @Author: yb
  * @Date: 2021-02-20 13:55:52
- * @LastEditTime: 2021-02-20 13:56:11
+ * @LastEditTime: 2021-02-24 10:01:12
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Moudle_xs\OveSituation.vue
@@ -46,9 +46,8 @@
 </template>
 <script>
 export default {
-  setup(){
-    return{
-    }
+  setup() {
+    return {};
   },
   created() {},
   methods: {},

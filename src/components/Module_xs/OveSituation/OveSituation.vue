@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-20 13:55:52
- * @LastEditTime: 2021-02-23 10:08:26
+ * @LastEditTime: 2021-02-24 10:02:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Moudle_xs\OveSituation.vue
@@ -25,7 +25,7 @@
   </div>
 </template>
 <script>
-import partyBuild from './left/PartyBuild'
+import partyBuild from './left/partyBuild'
 import community from './left/Community'
 import communityManage from './left/CommunityManage'
 import keyControl from './left/KeyControl'

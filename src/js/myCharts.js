@@ -1,17 +1,68 @@
 /*
  * @Author: your name
  * @Date: 2021-02-23 15:47:11
- * @LastEditTime: 2021-02-23 17:53:19
+ * @LastEditTime: 2021-02-25 16:50:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\js\myCharts.js\
  */
+import {
+    reactive,
+} from 'vue'
+let barWidth, door = true;
+let fontSize = reactive({
+    size: {
+        fontSize: parseInt(window.innerWidth / 100)
+    }
+});
 
+let echartsArr = [],
+    timer;
+
+function fS(res) {
+    let docEl = document.documentElement,
+        clientWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    if (!clientWidth) return;
+    let fontSize = 100 * (clientWidth / 1920);
+    return res * fontSize;
+}
+// 防抖函数
+let debounce = function (echartsArr, wait) {
+    // 闭包
+    return function () {
+        timer && clearTimeout(timer);
+        timer = setTimeout(() => {
+            // 需要防抖的操作...
+            fontSize.size.fontSize = parseInt(window.innerWidth / 100);
+            door = false;
+            echartsArr.forEach((echarted, i) => {
+                const {
+                    $e,
+                    echarts,
+                    dataArr
+                } = echarted;
+                $e.clear && $e.clear();
+                switch (i) {
+                    case 0:
+                        SexStatis(echarts, dataArr);
+                        break;
+                    case 1:
+                        $e.forEach((item,e)=>{
+                            item.clear();
+                            YearStatis(echarts,dataArr.data[e])
+                        })
+                        break;
+                }
+            })
+        }, wait);
+    }
+
+}
 //  智慧党建性别统计
-export function SexStatis(echarts,id) {
-    let getArrayValue,array2obj,getData,data,option;
-    let arrName,arrValue,sumValue,objData,optionData;
-    let $e = echarts.init(document.getElementById(id));
+export function SexStatis(echarts, statisDataSex) {
+    let getArrayValue, array2obj, getData, data, option;
+    let arrName, arrValue, sumValue, objData, optionData;
+    let $e = echarts.init(document.getElementById(statisDataSex.data[0].id));
     getArrayValue = function (array, key) {
         var key = key || "value";
         var res = [];
@@ -145,9 +196,9 @@ export function SexStatis(echarts,id) {
     objData = array2obj(data, "name");
     optionData = getData(data)
     option = {
-        title: {
-            text: '学历统计'
-        },
+        // title: {
+        //     text: '学历统计'
+        // },
         legend: {
             show: true,
             icon: "circle",
@@ -158,21 +209,17 @@ export function SexStatis(echarts,id) {
             data: arrName,
             width: '40%',
             padding: [0, 12],
-            
             formatter: function (name) {
                 return "{title|" + name + "} {value|    " + (objData[name].value) + "}  {title|%}"
             },
-
             textStyle: {
                 rich: {
                     title: {
-                        fontSize: '110%',
-                       
+                        fontSize: fS(0.16),
                         color: "rgb(0, 178, 246)"
                     },
                     value: {
-                        fontSize: '110%',
-                        
+                        fontSize: fontSize.size.fontSize,
                         color: "#fff"
                     }
                 }
@@ -190,7 +237,316 @@ export function SexStatis(echarts,id) {
         series: optionData.series
     };
     $e.setOption(option)
-    window.onresize= function(){
-        $e.resize()
+    $e.resize()
+    if (door) {
+        echartsArr.push({
+            $e,
+            echarts,
+            dataArr: statisDataSex,
+        })
     }
 }
+
+//智慧党建  党龄/年龄统计表
+let YearStatis = function (echarts, item) {
+    let $e = echarts.init(document.getElementById(item.id));
+    let option = {
+        title: {
+            text: item.title,
+            left: 'center',
+            bottom: 'bottom',
+            textStyle: {
+                fontWeight: 'bolder',
+                fontSize: 25,
+                color: 'rgb(255, 255, 255)'
+            }
+        },
+        series: [{
+            type: 'liquidFill',
+            radius: '60%',
+            center: ['50%', '50%'],
+            data: [item.data + item.data / 5, item.data, item.data], // data个数代表波浪数
+            backgroundStyle: {
+                borderWidth: 1,
+                color: 'rgb(255,255,255,0.1)'
+            },
+            label: {
+                normal: {
+                    textStyle: {
+                        fontSize: 20
+                    }
+                }
+            },
+            outline: {
+                show: false,
+            }
+        }, {
+            "type": "pie",
+            "center": ['50%', '50%'],
+            "radius": ["68%", "75%"],
+            "hoverAnimation": false,
+            "data": [{
+                    "name": "",
+                    "value": 500,
+                    labelLine: {
+                        show: false
+                    },
+                    itemStyle: {
+                        color: '#5886f0'
+                    },
+                    emphasis: {
+                        labelLine: {
+                            show: false
+                        },
+                        itemStyle: {
+                            color: '#5886f0'
+                        },
+                    }
+                },
+                { //画中间的图标
+                    "name": "",
+                    "value": 5,
+                    labelLine: {
+                        show: false
+                    },
+                    itemStyle: {
+                        color: '#ffffff',
+                        "normal": {
+                            "color": "#5886f0",
+                            "borderColor": "#5886f0",
+                            "borderWidth": 8,
+                            "borderRadius": '100%'
+                        },
+                    },
+                    label: {
+
+                        borderRadius: '100%'
+                    },
+                    emphasis: {
+                        labelLine: {
+                            show: false
+                        },
+                        itemStyle: {
+                            color: '#5886f0'
+                        },
+                    }
+
+                },
+                { // 解决圆点过大后续部分显示明显的问题
+                    "name": "",
+                    "value": 1,
+                    labelLine: {
+                        show: false
+                    },
+                    itemStyle: {
+                        color: '#5886f0'
+                    },
+                    emphasis: {
+                        labelLine: {
+                            show: false
+                        },
+                        itemStyle: {
+                            color: '#5886f0'
+                        },
+                    }
+                },
+                { //画剩余的刻度圆环
+                    "name": "",
+                    "value": 88,
+                    itemStyle: {
+                        color: 'rgba(255,255,255,0)'
+                    },
+                    "label": {
+                        show: false
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    emphasis: {
+                        labelLine: {
+                            show: false
+                        },
+                        itemStyle: {
+                            color: 'rgba(255,255,255,0)'
+                        },
+                    }
+                }
+            ]
+        }]
+    }
+    $e.setOption(option)
+    $e.resize()
+    if (door) {
+        echartsArr[1].$e.push($e)
+    }
+
+}
+
+export function BuildCom(StatisData, echarts) {
+    if (door) {
+        echartsArr[1] = {
+            dataArr: StatisData,
+            echarts,
+            $e: []
+        }
+    }
+    StatisData.data.forEach((item, i) => {
+        YearStatis(echarts, item)
+    })
+}
+
+//智慧党建人员构成统计表
+
+export function PerBuild(echarts, id) {
+    let $e = echarts.init(document.getElementById(id));
+    let yList = [320, 580, 640, 640, ];
+    let xList = [10, 55, 44, 55, ];
+    let xData = ['党员', '申请入党人员', '预备党员', '入党积极人员'];
+    let color = ['#CC1CAA', '#8D67FF', '#00FFFF', '#48DE13', '#FFC516', '#DC3E14', '#8E16F8'];
+    let barWidth = 380;
+    let colors = []
+    for (let i = 0; i < 4; i++) {
+        colors.push({
+            type: 'linear',
+            x: 0,
+            x2: 1,
+            y: 0,
+            y2: 0,
+            colorStops: [{
+                offset: 0,
+                color: '#73fcff' // 最左边
+            }, {
+                offset: 0.5,
+                color: '#86eef1' // 左边的右边 颜色
+            }, {
+                offset: 0.5,
+                color: '#5ad6d9' // 右边的左边 颜色
+            }, {
+                offset: 1,
+                color: '#3dc8ca'
+            }]
+        })
+    }
+    let option = {
+        //提示框
+        tooltip: {
+            trigger: 'axis',
+            formatter: "{b} : {c}",
+            axisPointer: { // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+            }
+        },
+        /**区域位置*/
+        grid: {
+            left: '10%',
+            right: '10%',
+            top: '20%',
+            bottom: '20%',
+        },
+        //X轴
+        xAxis: {
+            data: xData,
+            type: 'category',
+            axisLine: {
+                show: false,
+                lineStyle: {
+                    color: 'rgba(255,255,255,1)',
+                    shadowColor: 'rgba(255,255,255,1)',
+                    shadowOffsetX: '20',
+                },
+                symbol: ['none', 'arrow'],
+                symbolOffset: [0, 25]
+            },
+            splitLine: {
+                show: false,
+            },
+            axisTick: {
+                show: false
+            },
+            axisLabel: {
+                margin: 30,
+                fontSize: fontSize,
+            },
+        },
+        yAxis: {
+            show: true,
+            splitNumber: 4,
+            axisLine: {
+                show: false,
+            },
+            splitLine: {
+                show: true,
+                lineStyle: {
+                    type: 'dashed',
+                    color: '#075858'
+                },
+            },
+            axisLabel: {
+                color: '#FFFFFF',
+                margin: 30,
+                fontSize: 15
+            }
+        },
+        series: [{
+                type: 'bar',
+                barWidth: barWidth,
+                itemStyle: {
+                    normal: {
+                        color: function (params) {
+                            return colors[params.dataIndex % 7];
+                        }
+                    }
+                },
+                label: {
+                    show: false,
+                    position: [barWidth / 2, -(barWidth + 20)],
+                    color: '#ffffff',
+                    fontSize: 14,
+                    fontStyle: 'bold',
+                    align: 'center',
+                },
+                data: yList
+            },
+            {
+                z: 2,
+                type: 'pictorialBar',
+                data: yList,
+                symbol: 'diamond',
+                symbolOffset: [0, '50%'],
+                symbolSize: [barWidth, barWidth * 0.5],
+                itemStyle: {
+                    normal: {
+                        color: function (params) {
+                            return colors[params.dataIndex % 7];
+                        },
+                    }
+                },
+            },
+            {
+                z: 3,
+                type: 'pictorialBar',
+                symbolPosition: 'end',
+                data: yList,
+                symbol: 'diamond',
+                symbolOffset: [0, '-50%'],
+                symbolSize: [barWidth, barWidth * 0.5],
+                itemStyle: {
+                    normal: {
+                        borderWidth: 0,
+                        color: function (params) {
+                            return colors[params.dataIndex % 7].colorStops[0].color;
+                        },
+
+                    }
+                },
+            },
+        ],
+    };
+    $e.setOption(option)
+    echartsArr.push($e)
+}
+
+window.addEventListener("resize", function () {
+    let Resize = debounce(echartsArr, 50);
+    Resize()
+});
