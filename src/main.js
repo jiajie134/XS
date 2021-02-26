@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-25 14:01:48
+ * @LastEditTime: 2021-02-26 09:17:14
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\main.js
@@ -16,8 +16,7 @@ import XS_Body from './components/Body.vue'
 import cardTitle from './components/cardTitle.vue'
 import * as echarts from 'echarts'
 import  'echarts-liquidfill'
-
-// import * as evet from 'echarts/events'
+import 'default-passive-events'
 import '@/assets/css/reset.css'
 import '@/assets/css/global.css'
 

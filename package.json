@@ -12,6 +12,7 @@
     "cesium": "^1.78.0",
     "core-js": "^3.8.1",
     "css-loader": "^5.0.2",
+    "default-passive-events": "^2.0.0",
     "echarts": "^5.0.1",
     "echarts-liquidfill": "^3.0.0",
     "less": "^4.1.1",

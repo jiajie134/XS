@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-23 11:11:18
- * @LastEditTime: 2021-02-25 16:15:07
+ * @LastEditTime: 2021-02-26 09:28:28
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Module_xs\WitBuilding\left\PartyStatistics.vue
@@ -143,7 +143,7 @@ export default {
   mounted() {
     SexStatis(this.$echarts, this.statisDataSex);
     BuildCom(this.StatisData, this.$echarts);
-    // BuildCom(this.StatisDatage, this.$echarts);
+    BuildCom(this.StatisDatage, this.$echarts);
     // PerBuild(this.$echarts,'PerBuild');
   },
   computed: {},

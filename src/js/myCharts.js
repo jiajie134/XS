@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-23 15:47:11
- * @LastEditTime: 2021-02-25 16:50:06
+ * @LastEditTime: 2021-02-26 09:26:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\js\myCharts.js\
@@ -17,7 +17,7 @@ let fontSize = reactive({
 });
 
 let echartsArr = [],
-    timer;
+    timer, site = 0;
 
 function fS(res) {
     let docEl = document.documentElement,
@@ -44,12 +44,21 @@ let debounce = function (echartsArr, wait) {
                 $e.clear && $e.clear();
                 switch (i) {
                     case 0:
-                        SexStatis(echarts, dataArr);
+                        $e.resize()
+                        SexStatis(echarts, dataArr, $e);
                         break;
                     case 1:
-                        $e.forEach((item,e)=>{
+                        $e.forEach((item, e) => {
                             item.clear();
-                            YearStatis(echarts,dataArr.data[e])
+                            item.resize();
+                            YearStatis(echarts, dataArr.data[e], item)
+                        })
+                        break;
+                    case 2:
+                        $e.forEach((item, e) => {
+                            item.clear();
+                            item.resize();
+                            YearStatis(echarts, dataArr.data[e], item)
                         })
                         break;
                 }
@@ -59,10 +68,12 @@ let debounce = function (echartsArr, wait) {
 
 }
 //  智慧党建性别统计
-export function SexStatis(echarts, statisDataSex) {
+export function SexStatis(echarts, statisDataSex, $e) {
     let getArrayValue, array2obj, getData, data, option;
     let arrName, arrValue, sumValue, objData, optionData;
-    let $e = echarts.init(document.getElementById(statisDataSex.data[0].id));
+    if (!$e) {
+        $e = echarts.init(document.getElementById(statisDataSex.data[0].id));
+    }
     getArrayValue = function (array, key) {
         var key = key || "value";
         var res = [];
@@ -237,7 +248,6 @@ export function SexStatis(echarts, statisDataSex) {
         series: optionData.series
     };
     $e.setOption(option)
-    $e.resize()
     if (door) {
         echartsArr.push({
             $e,
@@ -248,8 +258,10 @@ export function SexStatis(echarts, statisDataSex) {
 }
 
 //智慧党建  党龄/年龄统计表
-let YearStatis = function (echarts, item) {
-    let $e = echarts.init(document.getElementById(item.id));
+let YearStatis = function (echarts, item, $e) {
+    if (!$e) {
+        $e = echarts.init(document.getElementById(item.id));
+    }
     let option = {
         title: {
             text: item.title,
@@ -271,11 +283,11 @@ let YearStatis = function (echarts, item) {
                 color: 'rgb(255,255,255,0.1)'
             },
             label: {
-                normal: {
-                    textStyle: {
-                        fontSize: 20
-                    }
+
+                textStyle: {
+                    fontSize: 20
                 }
+
             },
             outline: {
                 show: false,
@@ -310,13 +322,12 @@ let YearStatis = function (echarts, item) {
                         show: false
                     },
                     itemStyle: {
-                        color: '#ffffff',
-                        "normal": {
-                            "color": "#5886f0",
-                            "borderColor": "#5886f0",
-                            "borderWidth": 8,
-                            "borderRadius": '100%'
-                        },
+
+                        "color": "#5886f0",
+                        "borderColor": "#5886f0",
+                        "borderWidth": 8,
+                        "borderRadius": '100%'
+
                     },
                     label: {
 
@@ -375,21 +386,22 @@ let YearStatis = function (echarts, item) {
         }]
     }
     $e.setOption(option)
-    $e.resize()
     if (door) {
-        echartsArr[1].$e.push($e)
+        echartsArr[site].$e.push($e)
     }
 
 }
 
 export function BuildCom(StatisData, echarts) {
+    site += 1;
     if (door) {
-        echartsArr[1] = {
+        echartsArr[site] = {
             dataArr: StatisData,
             echarts,
             $e: []
         }
     }
+    console.log(echartsArr)
     StatisData.data.forEach((item, i) => {
         YearStatis(echarts, item)
     })
@@ -491,11 +503,11 @@ export function PerBuild(echarts, id) {
                 type: 'bar',
                 barWidth: barWidth,
                 itemStyle: {
-                    normal: {
-                        color: function (params) {
-                            return colors[params.dataIndex % 7];
-                        }
+
+                    color: function (params) {
+                        return colors[params.dataIndex % 7];
                     }
+
                 },
                 label: {
                     show: false,
@@ -515,11 +527,11 @@ export function PerBuild(echarts, id) {
                 symbolOffset: [0, '50%'],
                 symbolSize: [barWidth, barWidth * 0.5],
                 itemStyle: {
-                    normal: {
-                        color: function (params) {
-                            return colors[params.dataIndex % 7];
-                        },
-                    }
+
+                    color: function (params) {
+                        return colors[params.dataIndex % 7];
+                    },
+
                 },
             },
             {
@@ -531,13 +543,13 @@ export function PerBuild(echarts, id) {
                 symbolOffset: [0, '-50%'],
                 symbolSize: [barWidth, barWidth * 0.5],
                 itemStyle: {
-                    normal: {
-                        borderWidth: 0,
-                        color: function (params) {
-                            return colors[params.dataIndex % 7].colorStops[0].color;
-                        },
 
-                    }
+                    borderWidth: 0,
+                    color: function (params) {
+                        return colors[params.dataIndex % 7].colorStops[0].color;
+                    },
+
+
                 },
             },
         ],
