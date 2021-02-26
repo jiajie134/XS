@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-23 11:11:18
- * @LastEditTime: 2021-02-26 09:28:28
+ * @LastEditTime: 2021-02-26 16:55:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Module_xs\WitBuilding\left\PartyStatistics.vue
@@ -130,10 +130,17 @@ export default {
         id:'edustatis'
       }]
     })
+    //党建构成人员
+    const statisPerBuild = reactive({
+      data:{
+        id:'PerBuild'
+      }
+    })
     return {
       statisDataSex,
       StatisData,
       StatisDatage,
+      statisPerBuild
     };
   },
   data() {
@@ -141,10 +148,10 @@ export default {
   },
   created() {},
   mounted() {
-    SexStatis(this.$echarts, this.statisDataSex);
-    BuildCom(this.StatisData, this.$echarts);
-    BuildCom(this.StatisDatage, this.$echarts);
-    // PerBuild(this.$echarts,'PerBuild');
+    EduStatis(this.echarts, this.statisDataSex);
+    BuildCom(this.StatisData, this.echarts);
+    BuildCom(this.StatisDatage, this.echarts);
+    PerBuild(this.echarts,this.statisPerBuild);
   },
   computed: {},
   watch: {},

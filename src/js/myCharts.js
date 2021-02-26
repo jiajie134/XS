@@ -1,23 +1,23 @@
 /*
  * @Author: your name
  * @Date: 2021-02-23 15:47:11
- * @LastEditTime: 2021-02-26 09:26:32
+ * @LastEditTime: 2021-02-26 17:04:56
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\js\myCharts.js\
  */
-import {
-    reactive,
-} from 'vue'
-let barWidth, door = true;
-let fontSize = reactive({
-    size: {
-        fontSize: parseInt(window.innerWidth / 100)
-    }
-});
+// import {
+//     reactive,
+// } from 'vue'
+// let fontSize = reactive({
+//     size: {
+//         fontSize: parseInt(window.innerWidth / 100)
+//     }
+// });
 
 let echartsArr = [],
-    timer, site = 0;
+    timer, site = 0,
+    door = true;
 
 function fS(res) {
     let docEl = document.documentElement,
@@ -33,7 +33,6 @@ let debounce = function (echartsArr, wait) {
         timer && clearTimeout(timer);
         timer = setTimeout(() => {
             // 需要防抖的操作...
-            fontSize.size.fontSize = parseInt(window.innerWidth / 100);
             door = false;
             echartsArr.forEach((echarted, i) => {
                 const {
@@ -45,7 +44,7 @@ let debounce = function (echartsArr, wait) {
                 switch (i) {
                     case 0:
                         $e.resize()
-                        SexStatis(echarts, dataArr, $e);
+                        EduStatis(echarts, dataArr, $e);
                         break;
                     case 1:
                         $e.forEach((item, e) => {
@@ -61,14 +60,18 @@ let debounce = function (echartsArr, wait) {
                             YearStatis(echarts, dataArr.data[e], item)
                         })
                         break;
+                    case 3:
+                        $e.resize()
+                        PerBuild(echarts, dataArr, $e);
+                        break;
                 }
             })
         }, wait);
     }
 
 }
-//  智慧党建性别统计
-export function SexStatis(echarts, statisDataSex, $e) {
+//  智慧党建学历统计
+export function EduStatis(echarts, statisDataSex, $e) {
     let getArrayValue, array2obj, getData, data, option;
     let arrName, arrValue, sumValue, objData, optionData;
     if (!$e) {
@@ -213,24 +216,26 @@ export function SexStatis(echarts, statisDataSex, $e) {
         legend: {
             show: true,
             icon: "circle",
-            top: "center",
-            top: '23%',
-            bottom: '53%',
+            top: '10%',
+            // bottom: '53%',
             left: "48%",
             data: arrName,
-            width: '40%',
-            padding: [0, 12],
+            orient: 'horizontal',
+            width: '35%',
+            height: '20%',
+            itemGap: fS(0.02),
+            itemWidth: fS(0.1),
             formatter: function (name) {
                 return "{title|" + name + "} {value|    " + (objData[name].value) + "}  {title|%}"
             },
             textStyle: {
                 rich: {
                     title: {
-                        fontSize: fS(0.16),
+                        fontSize: fS(0.1),
                         color: "rgb(0, 178, 246)"
                     },
                     value: {
-                        fontSize: fontSize.size.fontSize,
+                        fontSize: fS(0.1),
                         color: "#fff"
                     }
                 }
@@ -268,14 +273,14 @@ let YearStatis = function (echarts, item, $e) {
             left: 'center',
             bottom: 'bottom',
             textStyle: {
-                fontWeight: 'bolder',
-                fontSize: 25,
+                fontWeight: 400,
+                fontSize: fS(0.1),
                 color: 'rgb(255, 255, 255)'
             }
         },
         series: [{
             type: 'liquidFill',
-            radius: '60%',
+            radius: '50%',
             center: ['50%', '50%'],
             data: [item.data + item.data / 5, item.data, item.data], // data个数代表波浪数
             backgroundStyle: {
@@ -285,7 +290,7 @@ let YearStatis = function (echarts, item, $e) {
             label: {
 
                 textStyle: {
-                    fontSize: 20
+                    fontSize: fS(0.1)
                 }
 
             },
@@ -295,7 +300,7 @@ let YearStatis = function (echarts, item, $e) {
         }, {
             "type": "pie",
             "center": ['50%', '50%'],
-            "radius": ["68%", "75%"],
+            "radius": ["58%", "65%"],
             "hoverAnimation": false,
             "data": [{
                     "name": "",
@@ -401,7 +406,6 @@ export function BuildCom(StatisData, echarts) {
             $e: []
         }
     }
-    console.log(echartsArr)
     StatisData.data.forEach((item, i) => {
         YearStatis(echarts, item)
     })
@@ -409,13 +413,15 @@ export function BuildCom(StatisData, echarts) {
 
 //智慧党建人员构成统计表
 
-export function PerBuild(echarts, id) {
-    let $e = echarts.init(document.getElementById(id));
+export function PerBuild(echarts, statisPerBuild, $e) {
+    if (!$e) {
+        $e = echarts.init(document.getElementById(statisPerBuild.data.id));
+    }
     let yList = [320, 580, 640, 640, ];
     let xList = [10, 55, 44, 55, ];
     let xData = ['党员', '申请入党人员', '预备党员', '入党积极人员'];
     let color = ['#CC1CAA', '#8D67FF', '#00FFFF', '#48DE13', '#FFC516', '#DC3E14', '#8E16F8'];
-    let barWidth = 380;
+    let barWidth = fS(0.2);
     let colors = []
     for (let i = 0; i < 4; i++) {
         colors.push({
@@ -450,10 +456,10 @@ export function PerBuild(echarts, id) {
         },
         /**区域位置*/
         grid: {
-            left: '10%',
-            right: '10%',
-            top: '20%',
-            bottom: '20%',
+            left: '20%',
+            right: '5%',
+            top: '15%',
+            bottom: '15%',
         },
         //X轴
         xAxis: {
@@ -476,8 +482,8 @@ export function PerBuild(echarts, id) {
                 show: false
             },
             axisLabel: {
-                margin: 30,
-                fontSize: fontSize,
+                margin: fS(0.15),
+                fontSize: fS(0.1),
             },
         },
         yAxis: {
@@ -496,7 +502,7 @@ export function PerBuild(echarts, id) {
             axisLabel: {
                 color: '#FFFFFF',
                 margin: 30,
-                fontSize: 15
+                fontSize: fS(0.1)
             }
         },
         series: [{
@@ -555,9 +561,18 @@ export function PerBuild(echarts, id) {
         ],
     };
     $e.setOption(option)
-    echartsArr.push($e)
+    if (door) {
+        echartsArr.push({
+            $e,
+            echarts,
+            dataArr: statisPerBuild,
+        })
+    }
 }
 
+//智慧党建性别统计
+
+export function SexStatis(){}
 window.addEventListener("resize", function () {
     let Resize = debounce(echartsArr, 50);
     Resize()

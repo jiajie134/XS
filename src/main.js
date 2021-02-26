@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-03 13:43:04
- * @LastEditTime: 2021-02-26 09:17:14
+ * @LastEditTime: 2021-02-26 16:54:43
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue3project\src\main.js
@@ -40,7 +40,7 @@ app.use(store)
 app.config.globalProperties.Vex = window.Vex;
 app.config.globalProperties.BASEURL = 'http://localhost:8080/treemap/'
 app.config.globalProperties.work = window.Work
-app.config.globalProperties.$echarts = echarts
+app.config.globalProperties.echarts = echarts
 
 router.beforeEach((to, from, next) => {
     if (to.meta.title) {
