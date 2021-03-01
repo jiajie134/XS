@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-22 16:23:58
- * @LastEditTime: 2021-02-23 14:59:29
+ * @LastEditTime: 2021-03-01 13:32:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\cardTitle.vue
@@ -12,19 +12,21 @@
       <div>
           <img src="@/assets/images/chongdie.png" alt="">
       </div>
-      <span class="titletext">{{leftTitle}}</span>
+      <span class="titletext">{{title}}</span>
   </div>
 </template>
 
 <script>
-import {inject} from 'vue'
 export default {
   props: {
+      title:{
+          type:String
+      }
   },
   setup(props){
-      const leftTitle = inject('leftTitle')
+      
       return {
-          leftTitle
+        
       }
   }
   

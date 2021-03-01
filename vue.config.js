@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-02-22 09:54:58
- * @LastEditTime: 2021-02-22 14:19:22
+ * @LastEditTime: 2021-03-01 13:39:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\vue.config.js
@@ -37,6 +37,9 @@ module.exports = {
     //         entry:'src/main.js'
     //     }
     // },
+    pluginOptions:{
+      
+    },
     css:{
         requireModuleExtension:false,
         extract:mode ? true : false,

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-22 17:37:26
- * @LastEditTime: 2021-02-24 14:41:21
+ * @LastEditTime: 2021-03-01 13:28:04
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Moudle_xs\OveSituation\left\ComStatistics.vue
@@ -9,7 +9,7 @@
 <!-- 综合统计 -->
 <template>
   <div class="ComStatistics">
-    <card-Title></card-Title>
+    <card-Title title="综合统计"></card-Title>
     <div class="moudle_card">
       <div class="layer">
         <div class="layerdiv" v-for="i in Statis.StatisRt.length" :key="i"></div>
@@ -25,10 +25,9 @@
 </template>
 
 <script>
-import { provide ,reactive} from "vue";
+import { reactive} from "vue";
 export default {
   setup() {
-    provide("leftTitle", "综合统计");
     const Statis =reactive({
       StatisRt:[
       {
