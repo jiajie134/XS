@@ -87,10 +87,10 @@ export default {
   },
   created() {},
   mounted() {
-    this.chart1 = this.$echarts.init(document.getElementById("crowdClassify"));
-    this.chart2 = this.$echarts.init(document.getElementById("totalCare"));
-    this.chart3 = this.$echarts.init(document.getElementById("company"));
-    this.chart4 = this.$echarts.init(document.getElementById("volunteer"));
+    this.chart1 = this.echarts.init(document.getElementById("crowdClassify"));
+    this.chart2 = this.echarts.init(document.getElementById("totalCare"));
+    this.chart3 = this.echarts.init(document.getElementById("company"));
+    this.chart4 = this.echarts.init(document.getElementById("volunteer"));
     this.initChart1();
     this.initChart2(this.chart2,'日间照料总计',this.chartData2);
     this.initChart2(this.chart3,'老入户陪伴人数',this.chartData2);

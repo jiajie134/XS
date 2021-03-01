@@ -50,7 +50,7 @@ export default {
     };
   },
   mounted() {
-    this._chart = this.$echarts.init(document.getElementById("chartGroup"));
+    this._chart = this.echarts.init(document.getElementById("chartGroup"));
     this.initChart(this._chart, this.dataList);
   },
   methods: {

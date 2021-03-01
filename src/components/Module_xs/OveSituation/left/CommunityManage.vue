@@ -43,7 +43,7 @@ export default {
     };
   },
   mounted() {
-    this._chart = this.$echarts.init(document.getElementById("manageDetail"));
+    this._chart = this.echarts.init(document.getElementById("manageDetail"));
     this.initChart(this._chart, this.data);
   },
   methods: {

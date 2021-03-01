@@ -89,8 +89,8 @@ export default {
     };
   },
   mounted() {
-    this._chart1 = this.$echarts.init(document.getElementById("demography"));
-    this._chart2 = this.$echarts.init(document.getElementById("householdSta"));
+    this._chart1 = this.echarts.init(document.getElementById("demography"));
+    this._chart2 = this.echarts.init(document.getElementById("householdSta"));
     this.initChart(this._chart1, this.data1);
     this.initChart2(this._chart2, this.data2);
   },
@@ -390,7 +390,7 @@ export default {
             color: [
               [
                 1,
-                new this.$echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                new this.echarts.graphic.LinearGradient(0, 0, 1, 0, [
                   {
                     offset: (data[0].value / sum).toFixed(1),
                     color: "#FFC600",
