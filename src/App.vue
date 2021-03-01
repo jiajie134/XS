@@ -41,5 +41,8 @@ export default {
   box-sizing: border-box;
   overflow: hidden;
   background-color: lightslategray;
+  background-image: url('~@/assets/images/img/bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 </style>

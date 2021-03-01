@@ -56,5 +56,6 @@ export default {
 <style lang="less">
   #OveSituation {
     height: 100%;
+    font-size: 1.25rem /* 30/24 */;
   }
 </style>

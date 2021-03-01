@@ -38,7 +38,7 @@ export default {
 .keyControl {
   color: #fff;
   .content {
-    height: 15rem;
+    height: 14rem;
     .selectField{
       border: 1px solid rgba(11, 158, 255, 0.2);
       height: 2.5rem /* 60/24 */;

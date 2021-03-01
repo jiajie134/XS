@@ -43,6 +43,9 @@ export default {
   justify-content: center;
   color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('~@/assets/images/img/head.png');
+  background-size: cover;
+  background-repeat: no-repeat;
   .time {
     position: absolute;
     top: 0;

@@ -11,7 +11,7 @@
 <template>
   <div class="partyBuild margin-b">
     <div class="title">智慧党建</div>
-    <div class="content">
+    <div class="content flex">
       <div class="left">
         <p class="num color-y">313</p>
         <p>党员总数</p>
@@ -58,11 +58,9 @@ export default {
 .partyBuild {
   color: #fff;
   .content {
-    height: 15rem;
-    display: flex;
-    justify-content: space-between;
+    height: 16rem;
     .left {
-      width: 12rem /* 250/24 */ /* 400/24 */ /* 200/24 */;
+      width: 12rem /* 250/24 */;
       height: 12rem /* 200/24 */;
       background: url("~@/assets/images/img/dyzs.png") no-repeat center
         center;
