@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-23 11:11:18
- * @LastEditTime: 2021-02-26 09:28:28
+ * @LastEditTime: 2021-03-01 13:28:16
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Module_xs\WitBuilding\left\PartyStatistics.vue
@@ -12,13 +12,25 @@
  -->
 <template>
   <div class="PartyStatistics">
-    <card-Title></card-Title>
+    <card-Title title='党员统计'></card-Title>
     <div class="party_card">
 
       <div
         class="sexstatis"
         id="sexstatis"
       >
+      </div>
+      <div class="manOrwoman">
+        <div class="woman">
+          <div class="sex">女</div>
+          <div class="count">202</div>
+          <div class="percent">44%</div>
+        </div>
+        <div class="man">
+          <div class="sex">男</div>
+          <div class="count">250</div>
+          <div class="percent">56%</div>
+        </div>
       </div>
       <div
         class="agestatistics"
@@ -58,12 +70,11 @@
 </template>
 
 <script>
-import { provide, reactive } from "vue";
-import { SexStatis, BuildCom, PerBuild } from "@/js/myCharts.js";
+import {  reactive } from "vue";
+import { EduStatis, BuildCom, PerBuild, SexStatis } from "@/js/myCharts.js";
 
 export default {
   setup() {
-    provide("leftTitle", "党员统计");
     //党龄数据
     const StatisData = reactive({
       data: [
@@ -125,15 +136,31 @@ export default {
       ],
     });
     //性别统计
+    const statisDataEdy = reactive({
+      data: [
+        {
+          id: "edustatis",
+        },
+      ],
+    });
+    //党建构成人员
+    const statisPerBuild = reactive({
+      data: {
+        id: "PerBuild",
+      },
+    });
+    //性别统计
     const statisDataSex = reactive({
-      data:[{
-        id:'edustatis'
-      }]
-    })
+      data: {
+        id: "sexstatis",
+      },
+    });
     return {
       statisDataSex,
       StatisData,
       StatisDatage,
+      statisPerBuild,
+      statisDataEdy,
     };
   },
   data() {
@@ -141,10 +168,11 @@ export default {
   },
   created() {},
   mounted() {
-    SexStatis(this.$echarts, this.statisDataSex);
-    BuildCom(this.StatisData, this.$echarts);
-    BuildCom(this.StatisDatage, this.$echarts);
-    // PerBuild(this.$echarts,'PerBuild');
+    EduStatis(this.echarts, this.statisDataEdy);
+    BuildCom(this.StatisData, this.echarts);
+    BuildCom(this.StatisDatage, this.echarts);
+    PerBuild(this.echarts, this.statisPerBuild);
+    SexStatis(this.echarts, this.statisDataSex);
   },
   computed: {},
   watch: {},
@@ -159,12 +187,58 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   > div {
     width: 100%;
   }
+  > .manOrwoman {
+    position: absolute;
+    height: 11.583333rem /* 278/24 */;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    > .woman,
+    .man {
+      width: 15%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    > .woman {
+      align-items: flex-end;
+      .sex {
+        font-size: 1.25rem /* 30/24 */;
+        color: #fff;
+        font-weight: bold;
+      }
+      .count,
+      .percent {
+        color: @motifColor;
+        font-weight: bolder;
+        font-size: 1.666667rem /* 40/24 */;
+      }
+    }
+    > .man {
+      align-items: flex-start;
+      .sex {
+        font-size: 1.25rem /* 30/24 */;
+        color: #fff;
+        font-weight: bold;
+      }
+      .count,
+      .percent {
+        color: @motifColor;
+        font-weight: bolder;
+        font-size: 1.666667rem /* 40/24 */;
+      }
+    }
+  }
   #sexstatis {
     flex: 1;
-    width: 50%;
+    width: 90%;
   }
   #agestatistics,
   #partystanding {

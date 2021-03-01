@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-02-20 13:50:25
- * @LastEditTime: 2021-02-23 11:17:28
+ * @LastEditTime: 2021-03-01 13:51:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \XS\src\components\Moudle_xs\Wit.vue
@@ -18,17 +18,22 @@
       <party-statistics></party-statistics>
     </div>
     <div class="right">
-
+      <car-ousel></car-ousel>
+      <found-party></found-party>
     </div>
   </div>
 </template>
 <script>
 import comstatistics from "./left/ComStatistics.vue";
 import PartyStatistics from './left/PartyStatistics.vue'
+import Carousel from './right/Carousel.vue'
+import foundparty from './right/FoundParty'
 export default {
   components: {
     "com-statistics": comstatistics,
-    "party-statistics":PartyStatistics
+    "party-statistics":PartyStatistics,
+    'car-ousel':Carousel,
+    "found-party":foundparty
   },
   methods: {},
 };
