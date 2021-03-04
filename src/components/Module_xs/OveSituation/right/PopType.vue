@@ -426,6 +426,10 @@ export default {
       };
       echart.setOption(option);
     },
+    resize(){
+      this._chart1.resize()
+      this._chart2.resize()
+    }
   },
 };
 </script >

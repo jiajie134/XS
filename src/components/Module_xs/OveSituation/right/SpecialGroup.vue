@@ -256,6 +256,9 @@ export default {
       };
       _chart.setOption(option);
     },
+    resize(){
+      this._chart.resize()
+    }
   },
 };
 </script >

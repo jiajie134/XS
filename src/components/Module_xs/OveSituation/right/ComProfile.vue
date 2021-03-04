@@ -28,7 +28,7 @@
             <td class="color-y">{{item.houseNum}}</td>
             <td class="color-g">{{item.buildNum}}</td>
             <td class="color-r">{{item.unitNum}}</td>
-            <td>{{item.name}}</td>
+            <td><img src="~@/assets/images/img/dingwei.png" ref="定位"></td>
           </tr>
         </tbody>
       </table>

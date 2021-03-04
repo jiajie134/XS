@@ -23,7 +23,10 @@
             <span class="color-b">社会救助</span>
             <span class="color-b">保障分类</span>
           </div>
-          <div class="total">总计：<span class="color-y">2300</span>人</div>
+          <div class="total">
+            总计：<span class="color-y">{{ total }}</span
+            >人
+          </div>
         </div>
         <div class="dayCare">
           <div id="totalCare"></div>
@@ -37,82 +40,100 @@
 <script>
 export default {
   setup() {
-    const chartData1 = [
-      {
-        name: "特困人员",
-        value: 456,
-      },
-      {
-        name: "重残补贴对象",
-        value: 231,
-      },
-      {
-        name: "困难残疾补贴",
-        value: 121,
-      },
-      {
-        name: "无人抚养保障",
-        value: 45,
-      },
-      {
-        name: "孤儿保障对象",
-        value: 154,
-      },
-      {
-        name: "高龄补贴对象",
-        value: 67,
-      },
-      {
-        name: "临时救助对象",
-        value: 67,
-      },
-    ];
-    const chartData2 = [
-      {
-        value: 50,
-      },
-      {
-        value: 50,
-      },
-    ];
-    let chart1, chart2, chart3, chart4;
     return {
-      chartData1,
-      chartData2,
-      chart1,
-      chart2,
-      chart3,
-      chart4,
+      chartData1: [
+        {
+          name: "特困人员",
+          value: 456,
+        },
+        {
+          name: "重残补贴对象",
+          value: 231,
+        },
+        {
+          name: "困难残疾补贴",
+          value: 121,
+        },
+        {
+          name: "无人抚养保障",
+          value: 45,
+        },
+        {
+          name: "孤儿保障对象",
+          value: 154,
+        },
+        {
+          name: "高龄补贴对象",
+          value: 67,
+        },
+        {
+          name: "临时救助对象",
+          value: 67,
+        },
+      ],
+      chartData2: [
+        {
+          value: 50,
+        },
+        {
+          value: 50,
+        },
+      ],
+      chartData3:[
+        {
+          value: 10,
+        },
+        {
+          value: 30,
+        },
+      ],
+      chartData4:[
+        {
+          value: 60,
+        },
+        {
+          value: 70,
+        },
+      ],
+      chart1: null,
+      chart2: null,
+      chart3: null,
+      chart4: null,
+      total: 0,
     };
   },
-  created() {},
+  created() {
+    this.chartData1.forEach((data) => {
+      this.total += data.value;
+    });
+  },
   mounted() {
     this.chart1 = this.echarts.init(document.getElementById("crowdClassify"));
     this.chart2 = this.echarts.init(document.getElementById("totalCare"));
     this.chart3 = this.echarts.init(document.getElementById("company"));
     this.chart4 = this.echarts.init(document.getElementById("volunteer"));
     this.initChart1();
-    this.initChart2(this.chart2,'日间照料总计',this.chartData2);
-    this.initChart2(this.chart3,'老入户陪伴人数',this.chartData2);
-    this.initChart2(this.chart4,'老年志愿队伍',this.chartData2);
+    this.initChart2(this.chart2, "日间照料总计", this.chartData2);
+    this.initChart2(this.chart3, "老入户陪伴人数", this.chartData3);
+    this.initChart2(this.chart4, "老年志愿队伍", this.chartData4);
   },
   methods: {
     initChart1: function () {
       let option = {
         color: [
           "#ff3d3d",
-          "#22a1f2",
-          "#00bb6e",
+          "#f9a426",
+          "#d1f058",
           "#00bb6e",
           "#79c036",
-          "#00d08d",
-          "#f9a426",
+          "#22a1f2",
+          "#ed57db",
         ],
-        grid: {
-          bottom: 0,
-          left: 100,
-          right: "70%",
-        },
+        // grid: {
+          // bottom: 0,
+          // left: 100,
+          // right: "70%",
+        // },
         tooltip: {
           trigger: "item",
           formatter: "{b}<br/> {c}人  ({d}%)",
@@ -139,6 +160,7 @@ export default {
             label: {
               position: "inner",
               formatter: "{c}",
+              color: "#fff"
             },
             labelLine: {
               normal: {
@@ -156,7 +178,7 @@ export default {
       };
       this.chart1.setOption(option);
     },
-    initChart2: function (_echart,text) {
+    initChart2: function (_echart, text, _data) {
       let option = {
         color: ["#22a1f2", "rgba(255,255,255,.1)"],
         series: [
@@ -167,9 +189,10 @@ export default {
             center: ["50%", "40%"],
             hoverAnimation: false,
             label: {
-              show: false,
+              show: true,
+              position: 'center'
             },
-            data: this.chartData2,
+            data: _data,
           },
           {
             center: ["50%", "40%"],
@@ -222,7 +245,7 @@ export default {
           },
         ],
         tooltip: {
-          show: false,
+          show: true,
         },
         legend: {
           show: false,
@@ -230,7 +253,7 @@ export default {
         title: {
           show: true,
           text: text,
-          textAlign: 'left',
+          textAlign: "left",
           left: "center",
           textVerticalAlign: "bottom",
           bottom: "-10",
@@ -243,6 +266,12 @@ export default {
       };
       _echart.setOption(option);
     },
+    resize() {
+      this.chart1.resize()
+      this.chart2.resize()
+      this.chart3.resize()
+      this.chart4.resize()
+    }
   },
 };
 </script >

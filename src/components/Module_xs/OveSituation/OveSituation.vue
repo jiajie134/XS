@@ -12,15 +12,15 @@
   <div class="OveSituation layout" id="OveSituation">
     <div class="left">
       <partyBuild></partyBuild>
-      <community></community>
-      <communityManage></communityManage>
+      <community ref="community"></community>
+      <communityManage ref="communityMa"></communityManage>
       <keyControl></keyControl>
     </div>
     <div class="right">
       <comProfile></comProfile>
-      <specialGroup></specialGroup>
+      <specialGroup ref="specialGroup"></specialGroup>
       <safety></safety>
-      <keyCoPopTypetrol></keyCoPopTypetrol>
+      <popType ref="popType"></popType>
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ import keyControl from './left/KeyControl'
 import comProfile from './right/ComProfile'
 import specialGroup from './right/SpecialGroup'
 import safety from './right/Safety'
-import keyCoPopTypetrol from './right/PopType'
+import popType from './right/PopType'
 export default {
   components:{
     partyBuild,
@@ -42,15 +42,21 @@ export default {
     comProfile,
     specialGroup,
     safety,
-    keyCoPopTypetrol
+    popType
   },
-  created(){
-    console.log(this.$echarts)
-  },
-
   methods: {
      
   },
+  mounted(){
+    window.onresize = () => {
+        return (() => {
+          this.$refs.community.resize()
+          this.$refs.communityMa.resize()
+          this.$refs.specialGroup.resize()
+          this.$refs.popType.resize()
+        })()
+    }
+  }
 };
 </script >
 <style lang="less">

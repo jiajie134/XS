@@ -300,6 +300,9 @@ export default {
       };
       _echart.setOption(option);
     },
+    resize(){
+      this._chart.resize()
+    }
   },
 };
 </script >
