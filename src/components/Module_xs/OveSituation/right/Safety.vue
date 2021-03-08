@@ -127,7 +127,6 @@ export default {
 };
 </script >
 <style scoped lang="less">
-@import url('~@/assets/XSCSS/common/oveSituation.less');
 .comSafety {
   color: #fff;
   .content {

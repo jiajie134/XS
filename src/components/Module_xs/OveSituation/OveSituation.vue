@@ -60,6 +60,7 @@ export default {
 };
 </script >
 <style lang="less">
+@import url('~@/assets/XSCSS/common/oveSituation.less');
   #OveSituation {
     height: 100%;
     font-size: 1.25rem /* 30/24 */;
